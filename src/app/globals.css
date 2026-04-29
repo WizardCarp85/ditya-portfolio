@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F4EFE6;
+  --foreground: #2C2C2C;
+  --primary-green: #375343;
+  --primary-red: #A33327;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary-green: var(--primary-green);
+  --color-primary-red: var(--primary-red);
+  --font-sans: var(--font-inter);
+  --font-oswald: var(--font-oswald);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-oswald), sans-serif;
+  text-transform: uppercase;
+}
+
+.stamp-border {
+  border: 3px solid var(--primary-red);
+  position: relative;
+  display: inline-block;
+}
+
+.stamp-border::before, .stamp-border::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--background);
+}
+.stamp-border::before { top: -4px; left: -4px; }
+.stamp-border::after { bottom: -4px; right: -4px; }
+
+.dotted-line {
+  border-bottom: 2px dotted var(--primary-red);
 }
