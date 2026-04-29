@@ -1,15 +1,16 @@
 import Image from "next/image";
-import { Mail, Phone, Link, PenTool, Layout, Monitor, BookOpen } from "lucide-react";
-import { PLACEHOLDER_IMG } from "@/lib/constants";
+import { Mail, Phone, Link} from "lucide-react";
+
 
 export default function Resume() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-12 text-sm md:text-base">
+    <>
+    <section className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-sm md:text-base -mx-4 md:-mx-12">
       {/* Left Column */}
       <div className="flex flex-col gap-6">
         <div className="stamp-border p-1 w-48 h-48 mx-auto md:mx-0 border-primary-red">
           <div className="w-full h-full relative">
-            <Image src={PLACEHOLDER_IMG} alt="Profile Photo" fill className="object-cover" />
+            <Image src="/profilepic.png" alt="Profile Photo" fill className="object-cover" />
           </div>
         </div>
         <h3 className="text-primary-green text-2xl tracking-wider">PERSONAL INFORMATION</h3>
@@ -82,10 +83,26 @@ export default function Resume() {
         <div>
           <h3 className="text-primary-green text-2xl tracking-wider mb-4">SOFTWARE SKILLS</h3>
           <div className="flex justify-between items-center text-primary-red mb-2 text-xs font-semibold text-center">
-            <div className="flex flex-col items-center gap-2"><PenTool size={20}/> <span>AUTOCAD</span></div>
-            <div className="flex flex-col items-center gap-2"><Layout size={20}/> <span>RHINO 3D</span></div>
-            <div className="flex flex-col items-center gap-2"><Monitor size={20}/> <span>TWINMOTION</span></div>
-            <div className="flex flex-col items-center gap-2"><BookOpen size={20}/> <span>ZBRUSH</span></div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="relative w-10 h-10 md:w-12 md:h-12"><Image src="/autocad.png" alt="AutoCAD" fill className="object-contain" /></div>
+              <span>AUTOCAD</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="relative w-10 h-10 md:w-12 md:h-12"><Image src="/rhino.png" alt="Rhino 3D" fill className="object-contain" /></div>
+              <span>RHINO 3D</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="relative w-10 h-10 md:w-12 md:h-12"><Image src="/twinmotion.png" alt="Twinmotion" fill className="object-contain" /></div>
+              <span>TWINMOTION</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="relative w-10 h-10 md:w-12 md:h-12"><Image src="/zbrush.png" alt="ZBrush" fill className="object-contain" /></div>
+              <span>ZBRUSH</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <div className="relative w-10 h-10 md:w-12 md:h-12"><Image src="/unreal.png" alt="Unreal Engine" fill className="object-contain" /></div>
+              <span>UNREAL ENGINE</span>
+            </div>
           </div>
         </div>
 
@@ -134,5 +151,6 @@ export default function Resume() {
         </div>
       </div>
     </section>
+    </>
   );
 }

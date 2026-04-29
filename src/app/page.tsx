@@ -12,12 +12,12 @@ import SectionDivider from "@/components/SectionDivider";
 
 export default function Home() {
   return (
-    <main className="max-w-7xl mx-auto px-6 py-12 md:px-12 selection:bg-primary-green selection:text-white">
+    <main className="max-w-7xl mx-auto px-6 py-12 md:px-12 selection:bg-primary-green selection:text-white overflow-hidden">
       <Header />
-      <SectionDivider />
+      <SectionDivider className="-mx-4 md:-mx-12" />
       
       <Resume />
-      <SectionDivider />
+      <SectionDivider className="-mx-4 md:-mx-12" />
       
       <TableOfContents />
       <SectionDivider />
