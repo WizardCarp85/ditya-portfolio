@@ -6,9 +6,9 @@ export default function MaterialExploration() {
     <>
       <div className="flex items-center gap-8 mb-16">
         <div className="-rotate-90 text-4xl text-primary-green font-oswald -translate-x-4">06</div>
-        <div className="stamp-border p-2 border-primary-red flex flex-col items-center justify-center">
+        <div className="p-2 flex flex-col items-center justify-center">
           <div className="w-48 h-64 relative">
-            <Image src={PLACEHOLDER_IMG} alt="Material Exploration" fill className="object-cover" />
+            <Image src="/material exploration.png" alt="Material Exploration" fill className="object-cover" />
           </div>
           <h4 className="text-primary-green mt-2 text-xl tracking-widest text-center">MATERIAL<br/>EXPLORATION</h4>
         </div>

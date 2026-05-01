@@ -5,7 +5,7 @@ import SectionHeader from "./SectionHeader";
 export default function SustainabilityProject() {
   return (
     <>
-      <SectionHeader num="02" title="SUSTAINABILITY PROJECT" />
+      <SectionHeader num="02" title="SUSTAINABILITY PROJECT" image="/sustainability project.png" />
 
       <section className="grid grid-cols-1 md:grid-cols-2 gap-12 my-16">
         <div>

@@ -8,6 +8,7 @@ export default function Services() {
       <SectionHeader 
         num="04" 
         title="SERVICES" 
+        image="/services.png"
         links={["PUBLIC WASHROOM PLUMBING SERVICE", "RESIDENTIAL PLUMBING SERVICE"]}
       />
 

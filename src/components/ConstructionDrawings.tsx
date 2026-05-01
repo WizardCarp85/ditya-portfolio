@@ -8,6 +8,7 @@ export default function ConstructionDrawings() {
       <SectionHeader 
         num="03" 
         title="CONSTRUCTION DRAWINGS" 
+        image="/construction drawings.png"
         links={["GLASS PARTITION", "TYPES OF ARCHS", "TYPES OF LINTEL"]}
       />
 

@@ -9,7 +9,7 @@ export default function SectionHeader({ num, title, image, links }: { num: strin
           {num}
         </div>
         <div className="flex flex-col items-center">
-          <div className="stamp-border p-2 border-primary-red">
+          <div className="p-2">
             <div className="w-48 h-64 md:w-56 md:h-72 relative">
               <Image src={image || PLACEHOLDER_IMG} alt={title} fill className="object-cover" />
             </div>

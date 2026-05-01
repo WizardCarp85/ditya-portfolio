@@ -8,6 +8,7 @@ export default function SpaceDesign() {
       <SectionHeader 
         num="01" 
         title="SPACE DESIGN" 
+        image="/space design.png"
         links={["THE KAHLO ATRIUM", "MANDUVA SOUKHYAM"]}
       />
 

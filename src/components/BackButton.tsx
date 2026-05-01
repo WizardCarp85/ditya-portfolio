@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function BackButton() {
   return (
     <Link 
-      href="/" 
+      href="/#table-of-contents" 
       className="inline-flex items-center gap-2 mb-8 group text-primary-green hover:text-primary-red transition-colors font-oswald text-lg tracking-wider font-semibold"
     >
       <svg 

@@ -5,7 +5,7 @@ import SectionHeader from "./SectionHeader";
 export default function Interests() {
   return (
     <>
-      <SectionHeader num="05" title="INTERESTS" />
+      <SectionHeader num="05" title="INTERESTS" image="/interests.png" />
       
       <section className="my-16 flex flex-col gap-16">
         <div className="flex flex-col md:flex-row gap-8 items-center border-b-2 border-dotted border-primary-red pb-16">
