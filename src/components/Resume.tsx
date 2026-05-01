@@ -1,13 +1,22 @@
+"use client";
+
 import Image from "next/image";
-import { Mail, Phone, Link} from "lucide-react";
+import { Mail, Phone, Link } from "lucide-react";
+import { motion } from "framer-motion";
 
 
 export default function Resume() {
   return (
     <>
-    <section className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-sm md:text-base -mx-4 md:-mx-12">
+    <section className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 text-sm md:text-base -mx-4 md:-mx-12 overflow-hidden">
       {/* Left Column */}
-      <div className="flex flex-col gap-6">
+      <motion.div 
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="flex flex-col gap-6"
+      >
         <div className="stamp-border p-1 w-48 h-48 mx-auto md:mx-0 border-primary-red">
           <div className="w-full h-full relative">
             <Image src="/profilepic.png" alt="Profile Photo" fill className="object-cover" />
@@ -31,10 +40,16 @@ export default function Resume() {
           <div className="flex items-center gap-2"><Mail size={14} /> dityasharma00@gmail.com</div>
           <div className="flex items-center gap-2"><Link size={14} /> linkedin.com/in/ditya-sharma-2007</div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Middle Column */}
-      <div className="flex flex-col gap-8">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        className="flex flex-col gap-8"
+      >
         <div>
           <h3 className="text-primary-green text-2xl tracking-wider mb-6">EDUCATION</h3>
           <div className="flex flex-col gap-6 relative border-l-2 border-dotted border-primary-red pl-4 ml-2">
@@ -76,10 +91,16 @@ export default function Resume() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Right Column */}
-      <div className="flex flex-col gap-8">
+      <motion.div 
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        className="flex flex-col gap-8"
+      >
         <div>
           <h3 className="text-primary-green text-2xl tracking-wider mb-4">SOFTWARE SKILLS</h3>
           <div className="flex justify-between items-center text-primary-red mb-2 text-xs font-semibold text-center">
@@ -149,7 +170,7 @@ export default function Resume() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
     </>
   );
