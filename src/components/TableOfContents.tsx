@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { PLACEHOLDER_IMG } from "@/lib/constants";
 
 export default function TableOfContents() {
@@ -7,14 +8,14 @@ export default function TableOfContents() {
       <h2 className="text-5xl md:text-7xl text-primary-green text-center tracking-widest mb-16">TABLE OF CONTENTS</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 md:gap-x-12 gap-y-16 max-w-6xl mx-auto">
         {[
-          { num: "01", title: "SPACE DESIGN", image: "/space design.png" },
-          { num: "02", title: "SUSTAINABILITY PROJECT", image: "/sustainability project.png" },
-          { num: "03", title: "CONSTRUCTION DRAWINGS", image: "/contruction drawings.png" },
-          { num: "04", title: "SERVICES", image: "/services.png" },
-          { num: "05", title: "INTERESTS", image: "/interests.png" },
-          { num: "06", title: "MATERIAL EXPLORATION", image: "/material exploration.png" },
+          { num: "01", title: "SPACE DESIGN", image: "/space design.png", link: "/space-design" },
+          { num: "02", title: "SUSTAINABILITY PROJECT", image: "/sustainability project.png", link: "/sustainability-project" },
+          { num: "03", title: "CONSTRUCTION DRAWINGS", image: "/contruction drawings.png", link: "/construction-drawings" },
+          { num: "04", title: "SERVICES", image: "/services.png", link: "/services" },
+          { num: "05", title: "INTERESTS", image: "/interests.png", link: "/interests" },
+          { num: "06", title: "MATERIAL EXPLORATION", image: "/material exploration.png", link: "/material-exploration" },
         ].map((item, idx) => (
-          <div key={idx} className="group relative flex flex-col items-center ml-4 md:ml-8 cursor-pointer transition-all duration-500 hover:-translate-y-3">
+          <Link href={item.link} key={idx} className="group relative flex flex-col items-center ml-4 md:ml-8 cursor-pointer transition-all duration-500 hover:-translate-y-3 block">
             <div className="absolute inset-0 bg-primary-green/5 blur-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 rounded-full"></div>
             <div className="relative z-10">
               <div className="absolute top-1/2 -translate-y-1/2 -left-8 md:-left-12 -rotate-90 text-4xl text-primary-green font-oswald transition-all duration-500 group-hover:scale-125 group-hover:-translate-x-2 group-hover:text-primary-red">
@@ -31,7 +32,7 @@ export default function TableOfContents() {
               {item.title}
             </h3>
             <div className="h-0.5 w-0 bg-primary-green mt-2 transition-all duration-700 group-hover:w-full max-w-[50px] mx-auto opacity-0 group-hover:opacity-100"></div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
