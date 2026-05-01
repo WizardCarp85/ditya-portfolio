@@ -16,7 +16,7 @@ export default function Header() {
           src="/homepage.png"
           alt="House Illustration"
           fill
-          className="object-cover"
+          className="object-cover object-bottom"
         />
       </div>
     </section>
