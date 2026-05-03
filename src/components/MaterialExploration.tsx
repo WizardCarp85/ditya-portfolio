@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { PLACEHOLDER_IMG } from "@/lib/constants";
 import SectionHeader from "./SectionHeader";
 import { motion, Variants } from "framer-motion";
 
@@ -9,10 +8,10 @@ import { motion, Variants } from "framer-motion";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const scaleReveal: Variants = {
-  hidden: { opacity: 0, scale: 0.88, clipPath: "inset(10% 10% 10% 10%)" },
+  hidden: { opacity: 0, scale: 0.9, clipPath: "inset(8% 8% 8% 8%)" },
   visible: (d = 0) => ({
     opacity: 1, scale: 1, clipPath: "inset(0% 0% 0% 0%)",
-    transition: { duration: 0.8, ease: EASE, delay: d },
+    transition: { duration: 0.85, ease: EASE, delay: d },
   }),
 };
 
@@ -20,29 +19,23 @@ const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: (d = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.6, ease: EASE, delay: d },
+    transition: { duration: 0.7, ease: EASE, delay: d },
   }),
 };
 
-/* ─── Gallery items – matching the screenshot categories ─────── */
-const galleryItems = [
-  { alt: "Warli Art",        label: "Warli Art" },
-  { alt: "Paper Mache",      label: "Paper Mache" },
-  { alt: "Metal Sheet",      label: "Metal Sheet" },
-  { alt: "Clay Mela",        label: "Clay Mela" },
-  { alt: "3D Prototype",     label: "3D Prototype" },
-  { alt: "Paper Exploration", label: "Paper Exploration" },
-];
-
-/* ─── Photo card ────────────────────────────────────────────── */
-function PhotoCard({
+/* ─── Photo cell ─────────────────────────────────────────────── */
+function PhotoCell({
+  src,
   alt,
   label,
   delay = 0,
+  rowHeight = "h-[280px] md:h-[360px]",
 }: {
+  src: string;
   alt: string;
-  label: string;
+  label?: string;
   delay?: number;
+  rowHeight?: string;
 }) {
   return (
     <motion.div
@@ -51,29 +44,33 @@ function PhotoCard({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
-      className="flex flex-col gap-2"
+      className={`relative ${rowHeight} overflow-hidden group`}
     >
-      <div className="relative h-52 md:h-64 overflow-hidden group bg-[#F7F4EB]/40 border border-primary-red/15">
-        <Image
-          src={PLACEHOLDER_IMG}
-          alt={alt}
-          fill
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-        />
-        {/* Caption overlay on hover */}
-        <div className="absolute inset-0 bg-primary-green/0 group-hover:bg-primary-green/10 transition-all duration-500 pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      </div>
-      <motion.p
-        variants={fadeUp}
-        custom={delay + 0.1}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        className="text-primary-red text-center text-[11px] font-semibold tracking-widest uppercase"
-      >
-        {label}
-      </motion.p>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+      />
+
+      {/* Dark overlay on hover */}
+      <div className="absolute inset-0 bg-primary-green/0 group-hover:bg-primary-green/10 transition-all duration-500 pointer-events-none" />
+
+      {/* Caption label — always visible, styled like handwritten note */}
+      {label && (
+        <motion.div
+          variants={fadeUp}
+          custom={delay + 0.15}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-60px" }}
+          className="absolute bottom-0 inset-x-0 px-3 py-2 bg-gradient-to-t from-black/40 to-transparent"
+        >
+          <span className="text-white text-xs font-medium tracking-wide italic drop-shadow">
+            {label}
+          </span>
+        </motion.div>
+      )}
     </motion.div>
   );
 }
@@ -86,18 +83,8 @@ export default function MaterialExploration() {
         num="06"
         title="MATERIAL EXPLORATION"
         image="/material exploration.png"
+        description="PAPER EXPLORATION, CLAY EXPLORATION, METAL SHEET EXPLORATION, PRINT MAKING ETC."
       />
-
-      {/* Subtitle tag line */}
-      <motion.p
-        initial={{ opacity: 0, letterSpacing: "0.04em" }}
-        whileInView={{ opacity: 1, letterSpacing: "0.1em" }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.9, ease: EASE }}
-        className="text-primary-red text-xs font-semibold tracking-widest uppercase text-center mb-12 mt-4"
-      >
-        Paper Exploration · Clay Exploration · Metal Sheet Exploration · Print Making etc.
-      </motion.p>
 
       {/* Drawing line before gallery */}
       <motion.div
@@ -105,25 +92,55 @@ export default function MaterialExploration() {
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: EASE }}
-        className="border-b-2 border-dotted border-primary-red/30 origin-left mb-12"
+        className="border-b-2 border-dotted border-primary-red/30 origin-left mb-6"
       />
 
-      {/* 3×2 photo grid */}
-      <motion.section
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-60px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 my-8"
-      >
-        {galleryItems.map(({ alt, label }, i) => (
-          <PhotoCard
-            key={i}
-            alt={alt}
-            label={label}
-            delay={i * 0.08}
+      {/* ── Photo Gallery ────────────────────────────────────── */}
+      <section className="flex flex-col gap-2 my-4">
+
+        {/* Row 1 — [2fr, 2fr, 1fr] */}
+        <div className="grid gap-2" style={{ gridTemplateColumns: "2fr 2fr 1fr" }}>
+          <PhotoCell
+            src="/material1.png"
+            alt="Warli Art"
+            delay={0}
           />
-        ))}
-      </motion.section>
+          <PhotoCell
+            src="/material2.png"
+            alt="Paper Mache"
+            label="Paper Mache"
+            delay={0.08}
+          />
+          <PhotoCell
+            src="/material3.png"
+            alt="Metal Sheet Exploration"
+            delay={0.16}
+          />
+        </div>
+
+        {/* Row 2 — [1fr, 2fr, 1.5fr] */}
+        <div className="grid gap-2" style={{ gridTemplateColumns: "1fr 2fr 1.5fr" }}>
+          <PhotoCell
+            src="/material4.png"
+            alt="Clay Work"
+            label="Clay Work"
+            delay={0.06}
+          />
+          <PhotoCell
+            src="/material5.png"
+            alt="3D Prototype"
+            label="3D Prototype"
+            delay={0.14}
+          />
+          <PhotoCell
+            src="/material6.png"
+            alt="Paper Exploration"
+            label="Paper Exploration"
+            delay={0.22}
+          />
+        </div>
+
+      </section>
 
       {/* Bottom drawing line */}
       <motion.div
@@ -131,7 +148,7 @@ export default function MaterialExploration() {
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1, ease: EASE }}
-        className="border-b-2 border-dotted border-primary-red/30 origin-right mt-12"
+        className="border-b-2 border-dotted border-primary-red/30 origin-right mt-6"
       />
     </>
   );

@@ -13,11 +13,13 @@ export default function SectionHeader({
   title,
   image,
   links,
+  description,
 }: {
   num: string;
   title: string;
   image?: string;
   links?: string[];
+  description?: string;
 }) {
   return (
     <div className="flex flex-col md:flex-row items-center md:items-stretch gap-8 my-16">
@@ -41,8 +43,8 @@ export default function SectionHeader({
         </div>
       </div>
 
-      {/* Right: anchor links */}
-      {links && links.length > 0 && (
+      {/* Right: anchor links OR description text */}
+      {(links && links.length > 0) ? (
         <div className="flex-1 flex flex-col justify-end gap-6 md:ml-12 pb-8">
           {links.map((link, idx) => (
             <a
@@ -60,7 +62,13 @@ export default function SectionHeader({
             </a>
           ))}
         </div>
-      )}
+      ) : description ? (
+        <div className="flex-1 flex items-center md:ml-12 pb-8">
+          <p className="text-primary-red text-xs font-semibold tracking-widest uppercase leading-relaxed max-w-xs">
+            {description}
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 }
