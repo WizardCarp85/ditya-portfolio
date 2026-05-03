@@ -43,11 +43,11 @@ export default function SpaceDesign() {
             The project is to design a dedicated space in a backyard or garden for a celebrity of choice. The space should support activities the person enjoys—relaxing, reading, meditating, working out, or entertaining. Frida Kahlo was a Mexican painter known for her many portraits, self-portraits and works inspired by the nature and artifacts of Mexico. She was a strong willed person, adored animals and had a great interest in fashion which was highlighted in her works. She enjoyed holding small gatherings with her friends and having drinks and storytelling session with them. The idea is to create a space in her memory that would be a bar and the space should support her love for animals while at the same time accommodate her love for small gatherings with her friends, family and all those who admire her as an artist and having drinks. It had to be bold just like her personality and at the same time should be inspired from her works.
           </p>
         </motion.div>
-        <motion.div variants={fadeInUp} className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-4 h-[600px] md:h-[800px] bg-[#F7F4EB]/30 p-4 shadow-sm">
-          <div className="relative w-full h-full min-h-[250px] hover:scale-[1.02] transition-transform duration-500"><Image src="/kahlo1.png" alt="Plan" fill className="object-contain" /></div>
-          <div className="relative w-full h-full min-h-[250px] hover:scale-[1.02] transition-transform duration-500"><Image src="/kahlo2.png" alt="Concept & Moodboard" fill className="object-contain" /></div>
-          <div className="relative w-full h-full min-h-[250px] hover:scale-[1.02] transition-transform duration-500"><Image src="/kahlo3.png" alt="Sections A-A & B-B" fill className="object-contain" /></div>
-          <div className="relative w-full h-full min-h-[250px] hover:scale-[1.02] transition-transform duration-500"><Image src="/kahlo4.png" alt="Master Render Plan" fill className="object-contain" /></div>
+        <motion.div variants={fadeInUp} className="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 gap-4 h-150 md:h-200 bg-[#F7F4EB]/30 p-4 shadow-sm">
+          <div className="relative w-full h-full min-h-62.5 hover:scale-[1.02] transition-transform duration-500"><Image src="/kahlo1.png" alt="Plan" fill className="object-contain" /></div>
+          <div className="relative w-full h-full min-h-62.5 hover:scale-[1.02] transition-transform duration-500"><Image src="/kahlo2.png" alt="Concept & Moodboard" fill className="object-contain" /></div>
+          <div className="relative w-full h-full min-h-62.5 hover:scale-[1.02] transition-transform duration-500"><Image src="/kahlo3.png" alt="Sections A-A & B-B" fill className="object-contain" /></div>
+          <div className="relative w-full h-full min-h-62.5 hover:scale-[1.02] transition-transform duration-500"><Image src="/kahlo4.png" alt="Master Render Plan" fill className="object-contain" /></div>
         </motion.div>
       </motion.section>
 
@@ -61,20 +61,20 @@ export default function SpaceDesign() {
       >
         {/* Left: 3D plan + sections */}
         <motion.div variants={fadeInUp} className="lg:col-span-4 flex flex-col gap-6">
-          <div className="relative w-full h-[300px] md:h-[400px] bg-[#F7F4EB]/30 p-2 shadow-sm hover:scale-[1.02] transition-transform duration-500">
+          <div className="relative w-full h-75 md:h-100 bg-[#F7F4EB]/30 p-2 shadow-sm hover:scale-[1.02] transition-transform duration-500">
             <Image src="/manduva1.png" alt="3D Floor Plan" fill className="object-contain" />
           </div>
-          <div className="relative w-full h-[150px] bg-[#F7F4EB]/30 p-2 shadow-sm hover:scale-[1.02] transition-transform duration-500">
+          <div className="relative w-full h-37.5 bg-[#F7F4EB]/30 p-2 shadow-sm hover:scale-[1.02] transition-transform duration-500">
             <Image src="/manduva3.png" alt="Elevation 1" fill className="object-contain" />
           </div>
-          <div className="relative w-full h-[150px] bg-[#F7F4EB]/30 p-2 shadow-sm hover:scale-[1.02] transition-transform duration-500">
+          <div className="relative w-full h-37.5 bg-[#F7F4EB]/30 p-2 shadow-sm hover:scale-[1.02] transition-transform duration-500">
             <Image src="/manduva4.png" alt="Elevation 2" fill className="object-contain" />
           </div>
         </motion.div>
 
         {/* Middle: 2D plan + details */}
         <motion.div variants={fadeInUp} className="lg:col-span-4 flex flex-col gap-6">
-          <div className="relative w-full h-[450px] md:h-[550px] bg-[#F7F4EB]/30 p-2 shadow-sm border border-primary-green/10 hover:scale-[1.02] transition-transform duration-500">
+          <div className="relative w-full h-112.5 md:h-137.5 bg-[#F7F4EB]/30 p-2 shadow-sm border border-primary-green/10 hover:scale-[1.02] transition-transform duration-500">
             <Image src="/manduva2.png" alt="2D Floor Plan" fill className="object-contain" />
           </div>
           <div className="grid grid-cols-2 gap-2 h-[120px]">
