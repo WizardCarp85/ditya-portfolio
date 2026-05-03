@@ -1,6 +1,7 @@
 import ServicesComponent from "@/components/Services";
 import BackButton from "@/components/BackButton";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 export default function ServicesPage() {
   return (
@@ -10,6 +11,7 @@ export default function ServicesPage() {
         <ServicesComponent />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

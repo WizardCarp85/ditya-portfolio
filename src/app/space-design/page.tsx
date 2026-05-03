@@ -1,6 +1,7 @@
 import SpaceDesignComponent from "@/components/SpaceDesign";
 import BackButton from "@/components/BackButton";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 export default function SpaceDesignPage() {
   return (
@@ -10,6 +11,7 @@ export default function SpaceDesignPage() {
         <SpaceDesignComponent />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

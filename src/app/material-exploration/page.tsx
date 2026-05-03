@@ -1,6 +1,7 @@
 import MaterialExplorationComponent from "@/components/MaterialExploration";
 import BackButton from "@/components/BackButton";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 export default function MaterialExplorationPage() {
   return (
@@ -10,6 +11,7 @@ export default function MaterialExplorationPage() {
         <MaterialExplorationComponent />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

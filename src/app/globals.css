@@ -26,6 +26,10 @@ body {
   background-position: center;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 ::selection {
   background-color: var(--primary-green);
   color: white;

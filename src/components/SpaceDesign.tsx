@@ -73,7 +73,7 @@ export default function SpaceDesign() {
       />
 
       {/* ── The Kahlo Atrium ──────────────────────────────────── */}
-      <section className="flex flex-col lg:flex-row gap-8 my-16 items-start">
+      <section id="the-kahlo-atrium" className="flex flex-col lg:flex-row gap-8 my-16 items-start scroll-mt-8">
         {/* Text */}
         <motion.div
           variants={fadeLeft}
@@ -141,10 +141,11 @@ export default function SpaceDesign() {
 
       {/* ── Manduva Soukhyam ─────────────────────────────────── */}
       <motion.section
+        id="manduva-soukhyam"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-24 mb-8 items-start"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-24 mb-8 items-start scroll-mt-8"
       >
         {/* Left: 3D plan + 2 elevations — total ~580px */}
         <motion.div

@@ -1,6 +1,7 @@
 import SustainabilityProjectComponent from "@/components/SustainabilityProject";
 import BackButton from "@/components/BackButton";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 export default function SustainabilityProjectPage() {
   return (
@@ -10,6 +11,7 @@ export default function SustainabilityProjectPage() {
         <SustainabilityProjectComponent />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

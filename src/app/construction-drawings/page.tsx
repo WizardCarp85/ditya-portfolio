@@ -1,6 +1,7 @@
 import ConstructionDrawingsComponent from "@/components/ConstructionDrawings";
 import BackButton from "@/components/BackButton";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 export default function ConstructionDrawingsPage() {
   return (
@@ -10,6 +11,7 @@ export default function ConstructionDrawingsPage() {
         <ConstructionDrawingsComponent />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }

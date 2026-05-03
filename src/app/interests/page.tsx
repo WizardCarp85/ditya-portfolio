@@ -1,6 +1,7 @@
 import InterestsComponent from "@/components/Interests";
 import BackButton from "@/components/BackButton";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 export default function InterestsPage() {
   return (
@@ -10,6 +11,7 @@ export default function InterestsPage() {
         <InterestsComponent />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 }
