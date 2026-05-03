@@ -107,7 +107,7 @@ export default function ConstructionDrawings() {
         <BlueprintSection
           id="glass-partition"
           title="GLASS PARTITION"
-          src="/construction1.jpg"
+          src="/construction2.jpg"
           alt="Glass Partition Drawing Sheet"
         />
 
@@ -116,7 +116,7 @@ export default function ConstructionDrawings() {
         <BlueprintSection
           id="exterior-wall-section"
           title="EXTERIOR WALL SECTION"
-          src="/construction2.jpg"
+          src="/construction5.jpg"
           alt="Exterior Wall Section Drawing Sheet"
         />
 
@@ -125,7 +125,7 @@ export default function ConstructionDrawings() {
         <BlueprintSection
           id="types-of-archs"
           title="TYPES OF ARCHS"
-          src="/construction3.jpg"
+          src="/construction1.jpg"
           alt="Types of Archs Drawing Sheet"
         />
 
@@ -134,7 +134,7 @@ export default function ConstructionDrawings() {
         <BlueprintSection
           id="types-of-lintels"
           title="TYPES OF LINTELS"
-          src="/construction4.jpg"
+          src="/construction3.jpg"
           alt="Types of Lintels Drawing Sheet"
         />
 
@@ -143,7 +143,7 @@ export default function ConstructionDrawings() {
         <BlueprintSection
           id="staircase"
           title="STAIRCASE"
-          src="/construction5.jpg"
+          src="/construction4.jpg"
           alt="Staircase Drawing Sheet"
         />
 

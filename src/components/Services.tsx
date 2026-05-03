@@ -157,8 +157,8 @@ export default function Services() {
         <ServiceGroup
           id="public-washroom"
           title="PUBLIC WASHROOM PLUMBING SERVICES"
-          supplyImg="/services1.jpg"
-          drainageImg="/services2.jpg"
+          supplyImg="/services3.jpg"
+          drainageImg="/services4.jpg"
           supplyAlt="Public Washroom – Supply Diagram"
           drainageAlt="Public Washroom – Drainage Diagram"
         />
@@ -168,8 +168,8 @@ export default function Services() {
         <ServiceGroup
           id="residency-plumbing"
           title="RESIDENCY PLUMBING SERVICE"
-          supplyImg="/services3.jpg"
-          drainageImg="/services4.jpg"
+          supplyImg="/services1.jpg"
+          drainageImg="/services2.jpg"
           supplyAlt="Residency Plumbing – Supply Diagram"
           drainageAlt="Residency Plumbing – Drainage Diagram"
         />
