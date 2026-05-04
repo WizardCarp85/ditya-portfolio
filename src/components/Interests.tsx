@@ -64,6 +64,7 @@ function PhotoCell({ src, alt, delay = 0, className = "", objectFit = "cover", s
       viewport={{ once: true, margin: "-60px" }}
       className={`relative group rounded-sm  ${className}`}
       style={style}
+      whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
     >
       <Image
         src={src} alt={alt} fill

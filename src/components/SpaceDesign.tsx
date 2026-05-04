@@ -166,6 +166,7 @@ export default function SpaceDesign() {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               className={`relative w-full ${flex} min-h-[120px] bg-[#F7F4EB]/30 p-2 shadow-sm group rounded-sm`}
+              whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
             >
               <Image
                 src={src}
@@ -186,24 +187,31 @@ export default function SpaceDesign() {
           viewport={{ once: true, margin: "-80px" }}
           className="lg:col-span-4 flex flex-col gap-4 h-auto lg:h-[580px]"
         >
-          <div className="relative flex-1 min-h-[300px] bg-[#F7F4EB]/30 p-2 shadow-sm border border-primary-green/10 group rounded-sm ">
+          <motion.div 
+            className="relative flex-1 min-h-[300px] bg-[#F7F4EB]/30 p-2 shadow-sm border border-primary-green/10 group rounded-sm "
+            whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+          >
             <Image
               src="/manduva2.png"
               alt="2D Floor Plan"
               fill
               className="object-contain transition-transform duration-700 "
             />
-          </div>
+          </motion.div>
           <div className="grid grid-cols-2 gap-3 h-[120px]">
             {["/manduva5.png", "/manduva6.png"].map((src, i) => (
-              <div key={i} className="relative bg-[#F7F4EB]/30 p-1 shadow-sm border border-primary-green/10 group rounded-sm ">
+              <motion.div 
+                key={i} 
+                className="relative bg-[#F7F4EB]/30 p-1 shadow-sm border border-primary-green/10 group rounded-sm "
+                whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+              >
                 <Image
                   src={src}
                   alt="Detail"
                   fill
                   className="object-cover transition-transform duration-700 "
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>

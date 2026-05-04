@@ -45,6 +45,7 @@ function PhotoCell({
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
       className={`relative ${rowHeight} group rounded-sm`}
+      whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
     >
       <Image
         src={src}
