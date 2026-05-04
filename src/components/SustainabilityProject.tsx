@@ -164,62 +164,60 @@ export default function SustainabilityProject() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="relative aspect-square w-full overflow-hidden group"
+            className="w-full overflow-hidden group mb-3"
           >
             <Image
               src="/sustain1.png"
               alt="Material Powder Bowl"
-              fill
-              className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+              width={1485} height={1489}
+              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
             />
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <motion.div
-              variants={scaleReveal}
-              custom={0.15}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              className="relative aspect-[4/3] overflow-hidden group"
-            >
-              <Image
-                src="/sustain2.png"
-                alt="Lime Powder"
-                fill
-                className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
-              />
-            </motion.div>
-            <motion.div
-              variants={scaleReveal}
-              custom={0.2}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              className="relative aspect-[3/4] row-span-2 overflow-hidden group"
-            >
-              <Image
-                src="/sustain4.png"
-                alt="Hempcrete Ball"
-                fill
-                className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
-              />
-            </motion.div>
-            <motion.div
-              variants={scaleReveal}
-              custom={0.25}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              className="relative aspect-[4/3] overflow-hidden group"
-            >
-              <Image
-                src="/sustain3.png"
-                alt="Hempcrete Blocks"
-                fill
-                className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
-              />
-            </motion.div>
+          <div className="flex gap-3 w-full" style={{ aspectRatio: 1.5 }}>
+            {/* Left sub-column */}
+            <div className="flex flex-col gap-3 flex-1 h-full">
+              <motion.div
+                variants={scaleReveal} custom={0.15}
+                initial="hidden" whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                className="relative w-full overflow-hidden group flex-1"
+              >
+                <Image
+                  src="/sustain2.png" alt="Lime Powder"
+                  fill
+                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+                />
+              </motion.div>
+              <motion.div
+                variants={scaleReveal} custom={0.25}
+                initial="hidden" whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                className="relative w-full overflow-hidden group flex-1"
+              >
+                <Image
+                  src="/sustain3.png" alt="Hempcrete Blocks"
+                  fill
+                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+                />
+              </motion.div>
+            </div>
+
+            {/* Right sub-column */}
+            <div className="flex-1 flex h-full">
+              <motion.div
+                variants={scaleReveal} custom={0.2}
+                initial="hidden" whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                className="relative w-full overflow-hidden group flex-1"
+              >
+                <Image
+                  src="/sustain4.png" alt="Hempcrete Ball"
+                  fill
+                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+                />
+              </motion.div>
+            </div>
           </div>
         </motion.div>
 
@@ -230,7 +228,7 @@ export default function SustainabilityProject() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="flex flex-col gap-4 h-[400px] md:h-[560px]"
+          className="flex flex-col gap-6 w-full"
         >
           <motion.div
             variants={scaleReveal}
@@ -238,13 +236,13 @@ export default function SustainabilityProject() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="relative flex-[2] min-h-0 w-full overflow-hidden group"
+            className="w-full overflow-hidden group"
           >
             <Image
               src="/sustain5.png"
               alt="Pyramid Shield Render 1"
-              fill
-              className="object-cover border-2 border-white shadow-sm p-1 transition-transform duration-700 group-hover:scale-[1.04]"
+              width={2768} height={1755}
+              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.04]"
             />
           </motion.div>
           <motion.div
@@ -253,13 +251,13 @@ export default function SustainabilityProject() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="relative flex-[3] min-h-0 w-full overflow-hidden group"
+            className="w-full overflow-hidden group"
           >
             <Image
               src="/sustain6.png"
               alt="Pyramid Shield Render 2"
-              fill
-              className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.04]"
+              width={2768} height={1562}
+              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.04]"
             />
           </motion.div>
         </motion.div>

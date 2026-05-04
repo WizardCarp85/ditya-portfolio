@@ -265,8 +265,16 @@ export default function Resume() {
           >
             SKILLS
           </motion.h3>
-          <div className="grid grid-cols-3 gap-2">
-            {["PRESENTATION", "TEAMWORK", "TIME MANAGEMENT", "SKETCH", "CREATIVITY", "COMMUNICATION", "RESEARCH", "LAYOUT"].map((s, i) => (
+          <div className="flex flex-wrap gap-2">
+            {[
+              "SPATIAL PLANNING",
+              "LAYOUT DESIGN",
+              "MATERIAL AND SURFACE EXPLORATION",
+              "TECHNICAL DRAWINGS",
+              "CREATIVITY",
+              "DESIGN THINKING",
+              "COMMUNICATION SKILLS"
+            ].map((s, i) => (
               <SkillBadge key={i} label={s} delay={i * 0.05} />
             ))}
           </div>
