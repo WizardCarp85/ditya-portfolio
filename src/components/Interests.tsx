@@ -62,12 +62,12 @@ function PhotoCell({ src, alt, delay = 0, className = "", objectFit = "cover", s
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
-      className={`relative overflow-hidden group ${className}`}
+      className={`relative group rounded-sm  ${className}`}
       style={style}
     >
       <Image
         src={src} alt={alt} fill
-        className={`transition-transform duration-700 group-hover:scale-[1.04] ${
+        className={`transition-transform duration-700  ${
           objectFit === "contain" ? "object-contain" : "object-cover"
         }`}
       />
@@ -199,7 +199,7 @@ export default function Interests() {
                   {label}
                 </span>
                 <div className="flex-1 border-b-2 border-dotted border-primary-red opacity-40 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="text-primary-green font-oswald text-xl group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                <span className="text-primary-green font-oswald text-xl group- transition-transform duration-300 flex-shrink-0">
                   {num}
                 </span>
               </motion.a>
@@ -245,12 +245,12 @@ export default function Interests() {
                 variants={scaleReveal} custom={0.05}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
-                className="overflow-hidden group"
-              >
+                className="group rounded-sm "
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
                 <Image
                   src="/interest1.png" alt="Unreal Night Scene"
                   width={3011} height={1695}
-                  className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="w-full h-auto transition-transform duration-700 "
                 />
               </motion.div>
 
@@ -258,12 +258,12 @@ export default function Interests() {
                 variants={scaleReveal} custom={0.12}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
-                className="overflow-hidden group"
-              >
+                className="group rounded-sm "
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
                 <Image
                   src="/interest5.png" alt="Unreal Architecture Scene"
                   width={1879} height={1003}
-                  className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="w-full h-auto transition-transform duration-700 "
                 />
               </motion.div>
             </div>
@@ -301,17 +301,17 @@ export default function Interests() {
             <div className="w-full max-w-[600px] flex gap-3 items-end">
               {/* Left sub-column: bear + duck */}
               <div className="flex flex-col gap-3" style={{ flex: 1 }}>
-                <motion.div variants={scaleReveal} custom={0.05} className="overflow-hidden group">
-                  <Image src="/interest4.png" alt="ZBrush Bear Front" width={586} height={705} className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.03]" />
+                <motion.div variants={scaleReveal} custom={0.05} className="group rounded-sm " whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                  <Image src="/interest4.png" alt="ZBrush Bear Front" width={586} height={705} className="w-full h-auto transition-transform duration-700 " />
                 </motion.div>
-                <motion.div variants={scaleReveal} custom={0.1} className="overflow-hidden group">
-                  <Image src="/interest6.png" alt="ZBrush Duck" width={1136} height={1672} className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.03]" />
+                <motion.div variants={scaleReveal} custom={0.1} className="group rounded-sm " whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                  <Image src="/interest6.png" alt="ZBrush Duck" width={1136} height={1672} className="w-full h-auto transition-transform duration-700 " />
                 </motion.div>
               </div>
 
               {/* Right: tall full character */}
-              <motion.div variants={scaleReveal} custom={0.08} className="overflow-hidden group" style={{ flex: 1.225 }}>
-                <Image src="/interest7.png" alt="ZBrush Full Character" width={1393} height={3093} className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.03]" />
+              <motion.div variants={scaleReveal} custom={0.08} className="group rounded-sm " style={{ flex: 1.225 }} whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                <Image src="/interest7.png" alt="ZBrush Full Character" width={1393} height={3093} className="w-full h-auto transition-transform duration-700 " />
               </motion.div>
             </div>
           </motion.div>
@@ -342,11 +342,11 @@ export default function Interests() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
-              className="relative h-[220px] md:h-[260px] overflow-hidden group"
-            >
+              className="relative h-[220px] md:h-[260px] group rounded-sm "
+             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
               <Image
                 src="/interest11.png" alt="Joker Close-up" fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                className="object-cover transition-transform duration-700 "
               />
             </motion.div>
 
@@ -436,11 +436,11 @@ export default function Interests() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
-              className="relative h-[220px] md:h-[260px] overflow-hidden group"
-            >
+              className="relative h-[220px] md:h-[260px] group rounded-sm "
+             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
               <Image
                 src="/interest3.png" alt="Jade Mist Close-up" fill
-                className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+                className="object-cover transition-transform duration-700 "
               />
             </motion.div>
 

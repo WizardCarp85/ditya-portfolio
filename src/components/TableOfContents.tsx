@@ -65,18 +65,23 @@ export default function TableOfContents() {
                 </motion.div>
 
                 {/* Card image */}
-                <div className="shrink-0 transition-all duration-500 shadow-sm group-hover:shadow-2xl group-hover:scale-105 group-hover:rotate-1">
-                  <div className="w-28 h-40 md:w-46 md:h-60 relative rounded-sm overflow-hidden">
+                <div className="shrink-0 transition-all duration-500 z-10 [perspective:1000px]">
+                  <div className="w-32 md:w-48 relative rounded-md overflow-hidden transition-all duration-500 group-hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.3)] group-hover:[transform:translateY(-1.25rem)_scale(1.05)_rotateX(5deg)_rotateY(-5deg)]">
                     <Image
                       src={item.image}
                       alt={item.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      width={907} height={1122}
+                      className="w-full h-auto transition-all duration-700 group-hover:contrast-110 group-hover:brightness-105"
                     />
-                    {/* Red overlay on hover */}
-                    <div className="absolute inset-0 bg-primary-red/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 mix-blend-overlay" />
-                    {/* Bottom gradient */}
-                    <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-primary-green/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    
+                    {/* Premium Sweeping Glare Effect */}
+                    <div className="absolute top-0 -inset-full h-full w-[200%] bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-[150%] skew-x-[-30deg] group-hover:translate-x-[150%] transition-transform duration-1000 ease-out z-20 mix-blend-overlay" />
+                    
+                    {/* Subtle red tint wash */}
+                    <div className="absolute inset-0 bg-primary-red/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100 mix-blend-multiply pointer-events-none z-10" />
+                    
+                    {/* Inner glowing border */}
+                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary-red/30 transition-colors duration-500 z-30 rounded-md" />
                   </div>
                 </div>
               </div>

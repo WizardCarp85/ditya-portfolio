@@ -35,7 +35,7 @@ export default function SectionHeader({
                 src={image || PLACEHOLDER_IMG}
                 alt={title}
                 fill
-                className="object-cover transition-transform duration-[1.5s] ease-in-out group-hover:scale-105"
+                className="object-cover transition-transform duration-[1.5s] ease-in-out "
               />
             </div>
           </div>
@@ -56,7 +56,7 @@ export default function SectionHeader({
                 {link}
               </span>
               <div className="flex-1 border-b-2 border-dotted border-primary-red opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="text-primary-green font-oswald text-xl group-hover:scale-110 transition-transform duration-300">
+              <div className="text-primary-green font-oswald text-xl group- transition-transform duration-300">
                 {num}-0{idx + 1}
               </div>
             </a>

@@ -83,13 +83,13 @@ function SheetCard({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="relative w-full h-[320px] md:h-[420px] bg-[#F7F4EB]/50 overflow-hidden group border border-primary-red/20"
-      >
+        className="relative w-full h-[320px] md:h-[420px] bg-[#F7F4EB]/50 group rounded-sm  border border-primary-red/20"
+       whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
         <Image
           src={src}
           alt={alt}
           fill
-          className="object-contain p-3 transition-transform duration-700 group-hover:scale-[1.03]"
+          className="object-contain p-3 transition-transform duration-700 "
         />
         <div className="absolute inset-0 ring-1 ring-inset ring-primary-green/0 group-hover:ring-primary-green/20 transition-all duration-500 pointer-events-none" />
       </motion.div>

@@ -126,13 +126,13 @@ export default function SpaceDesign() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className="relative w-full h-full min-h-62.5 overflow-hidden group"
-            >
+              className="relative w-full h-full min-h-62.5 group rounded-sm "
+             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
               <Image
                 src={src}
                 alt={alt}
                 fill
-                className="object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                className="object-contain transition-transform duration-700 "
               />
             </motion.div>
           ))}
@@ -165,13 +165,13 @@ export default function SpaceDesign() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className={`relative w-full ${flex} min-h-[120px] bg-[#F7F4EB]/30 p-2 shadow-sm overflow-hidden group`}
+              className={`relative w-full ${flex} min-h-[120px] bg-[#F7F4EB]/30 p-2 shadow-sm group rounded-sm`}
             >
               <Image
                 src={src}
                 alt={alt}
                 fill
-                className="object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                className="object-contain transition-transform duration-700 "
               />
             </motion.div>
           ))}
@@ -186,22 +186,22 @@ export default function SpaceDesign() {
           viewport={{ once: true, margin: "-80px" }}
           className="lg:col-span-4 flex flex-col gap-4 h-auto lg:h-[580px]"
         >
-          <div className="relative flex-1 min-h-[300px] bg-[#F7F4EB]/30 p-2 shadow-sm border border-primary-green/10 overflow-hidden group">
+          <div className="relative flex-1 min-h-[300px] bg-[#F7F4EB]/30 p-2 shadow-sm border border-primary-green/10 group rounded-sm ">
             <Image
               src="/manduva2.png"
               alt="2D Floor Plan"
               fill
-              className="object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+              className="object-contain transition-transform duration-700 "
             />
           </div>
           <div className="grid grid-cols-2 gap-3 h-[120px]">
             {["/manduva5.png", "/manduva6.png"].map((src, i) => (
-              <div key={i} className="relative bg-[#F7F4EB]/30 p-1 shadow-sm border border-primary-green/10 overflow-hidden group">
+              <div key={i} className="relative bg-[#F7F4EB]/30 p-1 shadow-sm border border-primary-green/10 group rounded-sm ">
                 <Image
                   src={src}
                   alt="Detail"
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                  className="object-cover transition-transform duration-700 "
                 />
               </div>
             ))}
@@ -300,13 +300,13 @@ export default function SpaceDesign() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="relative w-full h-[350px] md:h-[450px] overflow-hidden group"
-          >
+            className="relative w-full h-[350px] md:h-[450px] group rounded-sm "
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
             <Image
               src="/sdextra1.png"
               alt="Bathroom Render"
               fill
-              className="object-cover shadow-md border-b-[8px] border-r-[8px] border-primary-green/10 transition-transform duration-700 group-hover:scale-[1.04]"
+              className="object-cover shadow-md border-b-[8px] border-r-[8px] border-primary-green/10 transition-transform duration-700 "
             />
           </motion.div>
           <div className="grid grid-cols-2 gap-4">
@@ -318,13 +318,13 @@ export default function SpaceDesign() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative h-[200px] md:h-[250px] overflow-hidden group"
-              >
+                className="relative h-[200px] md:h-[250px] group rounded-sm "
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
                 <Image
                   src={src}
                   alt="Render"
                   fill
-                  className="object-cover shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+                  className="object-cover shadow-sm transition-transform duration-700 "
                 />
               </motion.div>
             ))}
@@ -349,7 +349,7 @@ export default function SpaceDesign() {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
               style={{ backgroundColor: color }}
-              className="h-12 w-full rounded-full shadow-md border border-white/20 hover:scale-110 transition-transform cursor-default"
+              className="h-12 w-full rounded-full shadow-md border border-white/20  transition-transform cursor-default"
             />
           ))}
         </motion.div>
@@ -369,13 +369,13 @@ export default function SpaceDesign() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative h-[200px] md:h-[250px] overflow-hidden group"
-              >
+                className="relative h-[200px] md:h-[250px] group rounded-sm "
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
                 <Image
                   src={src}
                   alt="Render"
                   fill
-                  className="object-cover shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+                  className="object-cover shadow-sm transition-transform duration-700 "
                 />
               </motion.div>
             ))}
@@ -386,13 +386,13 @@ export default function SpaceDesign() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="relative w-full h-[350px] md:h-[450px] overflow-hidden group"
-          >
+            className="relative w-full h-[350px] md:h-[450px] group rounded-sm "
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
             <Image
               src="/sdextra6.png"
               alt="Kitchen Render"
               fill
-              className="object-cover shadow-md border-b-[8px] border-l-[8px] border-primary-green/10 transition-transform duration-700 group-hover:scale-[1.04]"
+              className="object-cover shadow-md border-b-[8px] border-l-[8px] border-primary-green/10 transition-transform duration-700 "
             />
           </motion.div>
         </motion.div>

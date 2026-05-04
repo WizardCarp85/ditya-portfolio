@@ -44,13 +44,13 @@ function PhotoCell({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
-      className={`relative ${rowHeight} overflow-hidden group`}
+      className={`relative ${rowHeight} group rounded-sm`}
     >
       <Image
         src={src}
         alt={alt}
         fill
-        className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+        className="object-cover transition-transform duration-700 "
       />
 
       {/* Dark overlay on hover */}

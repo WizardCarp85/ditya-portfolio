@@ -57,13 +57,13 @@ function BlueprintSection({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className={`relative w-full ${height} bg-[#F7F4EB]/50 overflow-hidden group border border-primary-red/20`}
+        className={`relative w-full ${height} bg-[#F7F4EB]/50 group rounded-sm  border border-primary-red/20`}
       >
         <Image
           src={src}
           alt={alt}
           fill
-          className="object-contain p-3 transition-transform duration-700 group-hover:scale-[1.02]"
+          className="object-contain p-3 transition-transform duration-700 "
         />
         {/* hover glow ring */}
         <div className="absolute inset-0 ring-1 ring-inset ring-primary-green/0 group-hover:ring-primary-green/20 transition-all duration-500 pointer-events-none" />

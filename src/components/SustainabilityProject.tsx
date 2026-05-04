@@ -164,13 +164,13 @@ export default function SustainabilityProject() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="w-full overflow-hidden group mb-3"
-          >
+            className="w-full group rounded-sm  mb-3"
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
             <Image
               src="/sustain1.png"
               alt="Material Powder Bowl"
               width={1485} height={1489}
-              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 "
             />
           </motion.div>
 
@@ -181,24 +181,24 @@ export default function SustainabilityProject() {
                 variants={scaleReveal} custom={0.15}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative w-full overflow-hidden group flex-1"
-              >
+                className="relative w-full group rounded-sm  flex-1"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
                 <Image
                   src="/sustain2.png" alt="Lime Powder"
                   fill
-                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
                 />
               </motion.div>
               <motion.div
                 variants={scaleReveal} custom={0.25}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative w-full overflow-hidden group flex-1"
-              >
+                className="relative w-full group rounded-sm  flex-1"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
                 <Image
                   src="/sustain3.png" alt="Hempcrete Blocks"
                   fill
-                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
                 />
               </motion.div>
             </div>
@@ -209,12 +209,12 @@ export default function SustainabilityProject() {
                 variants={scaleReveal} custom={0.2}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative w-full overflow-hidden group flex-1"
-              >
+                className="relative w-full group rounded-sm  flex-1"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
                 <Image
                   src="/sustain4.png" alt="Hempcrete Ball"
                   fill
-                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.05]"
+                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
                 />
               </motion.div>
             </div>
@@ -236,13 +236,13 @@ export default function SustainabilityProject() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="w-full overflow-hidden group"
-          >
+            className="w-full group rounded-sm "
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
             <Image
               src="/sustain5.png"
               alt="Pyramid Shield Render 1"
               width={2768} height={1755}
-              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.04]"
+              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 "
             />
           </motion.div>
           <motion.div
@@ -251,13 +251,13 @@ export default function SustainabilityProject() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="w-full overflow-hidden group"
-          >
+            className="w-full group rounded-sm "
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
             <Image
               src="/sustain6.png"
               alt="Pyramid Shield Render 2"
               width={2768} height={1562}
-              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 group-hover:scale-[1.04]"
+              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 "
             />
           </motion.div>
         </motion.div>
