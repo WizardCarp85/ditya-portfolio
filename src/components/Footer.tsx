@@ -18,9 +18,9 @@ const navLinks = [
 ];
 
 const contacts = [
-  { icon: Phone, label: "+91 9453997573", href: "tel:+919453997573" },
-  { icon: Mail, label: "dityasharma00@gmail.com", href: "mailto:dityasharma00@gmail.com" },
-  { icon: ExternalLink, label: "linkedin.com/in/ditya-sharma-2007", href: "https://linkedin.com/in/ditya-sharma-2007" },
+  { icon: Phone, label: "+91 9451397671", href: "tel:+919451397671" },
+  { icon: Mail, label: "dityashar06@gmail.com", href: "mailto:dityashar06@gmail.com" },
+  { icon: ExternalLink, label: "linkedin.com/in/ditya-sharma-20a7bb347", href: "https://linkedin.com/in/ditya-sharma-20a7bb347" },
 ];
 
 export default function Footer() {
@@ -174,7 +174,7 @@ export default function Footer() {
           <div className="flex items-center gap-2 text-primary-red/40">
             <span className="text-[10px] font-oswald tracking-widest">PORTFOLIO</span>
             <div className="w-16 border-b border-dotted border-primary-red/30" />
-            <span className="text-[10px] font-oswald">2025</span>
+            <span className="text-[10px] font-oswald">2026</span>
           </div>
         </motion.div>
       </div>

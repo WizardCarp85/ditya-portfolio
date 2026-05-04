@@ -119,7 +119,7 @@ export default function Resume() {
 
         {[
           { label: "Name", value: "Ditya Sharma" },
-          { label: "Date of Birth", value: "12/12/2000" },
+          { label: "Date of Birth", value: "12/12/2006" },
         ].map(({ label, value }, i) => (
           <motion.div
             key={i}
@@ -155,9 +155,20 @@ export default function Resume() {
           viewport={{ once: true, margin: "-60px" }}
           className="flex flex-col gap-2 text-primary-red font-semibold text-xs mt-2"
         >
-          <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-300"><Phone size={14} /> +91 9453997573</div>
-          <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-300"><Mail size={14} /> dityasharma00@gmail.com</div>
-          <div className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-300"><Link size={14} /> linkedin.com/in/ditya-sharma-2007</div>
+          <a href="tel:+919451397671" className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-300 hover:text-primary-green">
+            <Phone size={14} /> +91 9451397671
+          </a>
+          <a href="mailto:dityashar06@gmail.com" className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-300 hover:text-primary-green">
+            <Mail size={14} /> dityashar06@gmail.com
+          </a>
+          <a 
+            href="https://linkedin.com/in/ditya-sharma-20a7bb347" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:translate-x-1 transition-transform duration-300 hover:text-primary-green"
+          >
+            <Link size={14} /> linkedin.com/in/ditya-sharma-20a7bb347
+          </a>
         </motion.div>
       </motion.div>
 
