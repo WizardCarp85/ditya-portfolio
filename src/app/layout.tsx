@@ -15,6 +15,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Ditya Sharma - Interior Designer",
   description: "Portfolio of Ditya Sharma, Interior Designer",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

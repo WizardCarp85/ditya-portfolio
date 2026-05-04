@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, ExternalLink } from "lucide-react";
 
@@ -81,8 +82,10 @@ export default function Footer() {
             className="flex flex-col gap-4"
           >
             <div className="flex items-center gap-3 mb-2">
-              {/* Tiny stamp corner decoration */}
-              <div className="stamp-border w-8 h-8 shrink-0 border-primary-green" />
+              {/* Logo */}
+              <div className="relative w-8 h-8 shrink-0">
+                <Image src="/logo.png" alt="Logo" fill className="object-contain" />
+              </div>
               <h3 className="text-primary-green text-sm font-oswald tracking-widest">DITYA SHARMA</h3>
             </div>
             <p className="text-primary-red text-xs leading-relaxed font-medium">
