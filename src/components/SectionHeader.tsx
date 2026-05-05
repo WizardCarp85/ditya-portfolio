@@ -18,7 +18,7 @@ export default function SectionHeader({
   num: string;
   title: string;
   image?: string;
-  links?: string[];
+  links?: (string | { label: string; sublinks?: string[] })[];
   description?: string;
 }) {
   return (
@@ -46,21 +46,44 @@ export default function SectionHeader({
       {/* Right: anchor links OR description text */}
       {(links && links.length > 0) ? (
         <div className="flex-1 flex flex-col justify-end gap-6 md:ml-12 pb-8">
-          {links.map((link, idx) => (
-            <a
-              key={idx}
-              href={`#${toSlug(link)}`}
-              className="flex items-center gap-4 text-primary-red uppercase text-sm md:text-base font-semibold tracking-wider group cursor-pointer hover:text-primary-green transition-colors duration-300"
-            >
-              <span className="group-hover:translate-x-1 transition-transform duration-300">
-                {link}
-              </span>
-              <div className="flex-1 border-b-2 border-dotted border-primary-red opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="text-primary-green font-oswald text-xl group- transition-transform duration-300">
-                {num}-0{idx + 1}
+          {links.map((linkItem, idx) => {
+            const isObj = typeof linkItem === 'object' && linkItem !== null;
+            const label = isObj ? (linkItem as any).label : linkItem;
+            const sublinks = isObj ? (linkItem as any).sublinks : null;
+            
+            return (
+              <div key={idx} className="flex flex-col gap-2">
+                <a
+                  href={`#${toSlug(label)}`}
+                  className="flex items-center gap-4 text-primary-red uppercase text-sm md:text-base font-semibold tracking-wider group cursor-pointer hover:text-primary-green transition-colors duration-300"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">
+                    {label}
+                  </span>
+                  <div className="flex-1 border-b-2 border-dotted border-primary-red opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="text-primary-green font-oswald text-xl group- transition-transform duration-300">
+                    {num}-0{idx + 1}
+                  </div>
+                </a>
+                {sublinks && sublinks.length > 0 && (
+                  <div className="flex flex-col gap-2 ml-4 mt-1 border-l-2 border-dotted border-primary-red/30 pl-4 py-1">
+                    {sublinks.map((sublink: string, subIdx: number) => (
+                      <a 
+                        key={subIdx}
+                        href={`#${toSlug(label)}`}
+                        className="text-primary-red/70 text-xs uppercase font-semibold tracking-widest hover:text-primary-green transition-colors relative group flex items-center"
+                      >
+                        <span className="absolute -left-4 w-3 border-t-2 border-dotted border-primary-red/30 group-hover:border-primary-green transition-colors" />
+                        <span className="group-hover:translate-x-1 transition-transform duration-300">
+                          {sublink}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
-            </a>
-          ))}
+            );
+          })}
         </div>
       ) : description ? (
         <div className="flex-1 flex items-center md:ml-12 pb-8">

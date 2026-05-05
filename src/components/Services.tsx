@@ -128,6 +128,30 @@ function ServiceGroup({
   );
 }
 
+/* ─── Electrical group ───────────────────────────────────────── */
+function ElectricalGroup() {
+  return (
+    <div id="residential-electricals" className="flex flex-col gap-8 scroll-mt-8">
+      <motion.h3
+        variants={titleReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="text-center text-2xl md:text-3xl text-primary-green font-bold tracking-widest uppercase"
+      >
+        RESIDENTIAL ELECTRICALS
+      </motion.h3>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+        <SheetCard src="/services5.jpeg" alt="RCP drawing" label="RCP drawing" variant={slideLeft} delay={0} />
+        <SheetCard src="/services6.jpeg" alt="lighting" label="lighting" variant={slideRight} delay={0.1} />
+        <SheetCard src="/services7.jpeg" alt="switches and sockets" label="switches and sockets" variant={slideLeft} delay={0.2} />
+        <SheetCard src="/services8.jpeg" alt="Connection" label="Connection" variant={slideRight} delay={0.3} />
+      </div>
+    </div>
+  );
+}
+
 /* ─── Dotted divider ─────────────────────────────────────────── */
 function Divider() {
   return (
@@ -149,7 +173,11 @@ export default function Services() {
         num="04"
         title="SERVICES"
         image="/services.png"
-        links={["PUBLIC WASHROOM", "RESIDENCY PLUMBING"]}
+        links={[
+          { label: "Public washroom plumbing", sublinks: ["supply", "drainage"] },
+          { label: "residential plumbing", sublinks: ["supply", "drainage"] },
+          { label: "residential electricals", sublinks: ["RCP drawing", "lighting", "switches and sockets", "Connection"] }
+        ]}
       />
 
       <section className="flex flex-col gap-20 my-16 py-8">
@@ -166,13 +194,17 @@ export default function Services() {
         <Divider />
 
         <ServiceGroup
-          id="residency-plumbing"
+          id="residential-plumbing"
           title="RESIDENCY PLUMBING SERVICE"
           supplyImg="/services1.jpg"
           drainageImg="/services2.jpg"
           supplyAlt="Residency Plumbing – Supply Diagram"
           drainageAlt="Residency Plumbing – Drainage Diagram"
         />
+
+        <Divider />
+
+        <ElectricalGroup />
 
       </section>
     </>
