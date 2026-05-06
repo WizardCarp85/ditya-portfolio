@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 import { motion, Variants } from "framer-motion";
+import { ZoomIn } from "lucide-react";
+import ImageModal from "./ImageModal";
 
 /* ─── Animation Variants ─────────────────────────────────────── */
 
@@ -64,6 +67,13 @@ const logoSpin: Variants = {
 };
 
 export default function SustainabilityProject() {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const handleOpen = (src: string, alt: string) => {
+    setModalImage({ src, alt });
+  };
+  const handleClose = () => setModalImage(null);
+
   return (
     <>
       <SectionHeader
@@ -164,14 +174,16 @@ export default function SustainabilityProject() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="w-full group rounded-sm  mb-3"
-           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+            className="w-full group rounded-sm mb-3 cursor-pointer relative"
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+           onClick={() => handleOpen("/sustain1.png", "Material Powder Bowl")}>
             <Image
               src="/sustain1.png"
               alt="Material Powder Bowl"
               width={1485} height={1489}
               className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 "
             />
+            <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
           </motion.div>
 
           <div className="flex gap-3 w-full" style={{ aspectRatio: 1.5 }}>
@@ -181,25 +193,29 @@ export default function SustainabilityProject() {
                 variants={scaleReveal} custom={0.15}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative w-full group rounded-sm  flex-1"
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                className="relative w-full group rounded-sm flex-1 cursor-pointer"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+               onClick={() => handleOpen("/sustain2.png", "Lime Powder")}>
                 <Image
                   src="/sustain2.png" alt="Lime Powder"
                   fill
                   className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
                 />
+                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
               </motion.div>
               <motion.div
                 variants={scaleReveal} custom={0.25}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative w-full group rounded-sm  flex-1"
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                className="relative w-full group rounded-sm flex-1 cursor-pointer"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+               onClick={() => handleOpen("/sustain3.png", "Hempcrete Blocks")}>
                 <Image
                   src="/sustain3.png" alt="Hempcrete Blocks"
                   fill
                   className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
                 />
+                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
               </motion.div>
             </div>
 
@@ -209,13 +225,15 @@ export default function SustainabilityProject() {
                 variants={scaleReveal} custom={0.2}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative w-full group rounded-sm  flex-1"
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                className="relative w-full group rounded-sm flex-1 cursor-pointer"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+               onClick={() => handleOpen("/sustain4.png", "Hempcrete Ball")}>
                 <Image
                   src="/sustain4.png" alt="Hempcrete Ball"
                   fill
                   className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
                 />
+                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
               </motion.div>
             </div>
           </div>
@@ -236,14 +254,16 @@ export default function SustainabilityProject() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="w-full group rounded-sm "
-           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+            className="w-full group rounded-sm cursor-pointer relative"
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+           onClick={() => handleOpen("/sustain5.png", "Pyramid Shield Render 1")}>
             <Image
               src="/sustain5.png"
               alt="Pyramid Shield Render 1"
               width={2768} height={1755}
               className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 "
             />
+            <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
           </motion.div>
           <motion.div
             variants={scaleReveal}
@@ -251,17 +271,21 @@ export default function SustainabilityProject() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="w-full group rounded-sm "
-           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+            className="w-full group rounded-sm cursor-pointer relative"
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+           onClick={() => handleOpen("/sustain6.png", "Pyramid Shield Render 2")}>
             <Image
               src="/sustain6.png"
               alt="Pyramid Shield Render 2"
               width={2768} height={1562}
               className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 "
             />
+            <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
           </motion.div>
         </motion.div>
       </motion.section>
+
+      <ImageModal modalImage={modalImage} onClose={handleClose} />
     </>
   );
 }

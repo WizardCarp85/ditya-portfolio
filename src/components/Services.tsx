@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 import { motion, Variants } from "framer-motion";
+import { ZoomIn } from "lucide-react";
+import ImageModal from "./ImageModal";
 
 /* ─── Animation variants ────────────────────────────────────── */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -49,13 +52,14 @@ const slideRight: Variants = {
 
 /* ─── Single blueprint sheet card ───────────────────────────── */
 function SheetCard({
-  src, alt, label, variant, delay = 0,
+  src, alt, label, variant, delay = 0, onImageClick
 }: {
   src: string;
   alt: string;
   label: string;
   variant: Variants;
   delay?: number;
+  onImageClick: (src: string, alt: string) => void;
 }) {
   return (
     <motion.div
@@ -83,8 +87,9 @@ function SheetCard({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="relative w-full h-[320px] md:h-[420px] bg-[#F7F4EB]/50 group rounded-sm  border border-primary-red/20"
-       whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+        className="relative w-full h-[320px] md:h-[420px] bg-[#F7F4EB]/50 group rounded-sm  border border-primary-red/20 cursor-pointer"
+       whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+       onClick={() => onImageClick(src, alt)}>
         <Image
           src={src}
           alt={alt}
@@ -92,6 +97,10 @@ function SheetCard({
           className="object-contain p-3 transition-transform duration-700 "
         />
         <div className="absolute inset-0 ring-1 ring-inset ring-primary-green/0 group-hover:ring-primary-green/20 transition-all duration-500 pointer-events-none" />
+        {/* Zoom icon hint */}
+        <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <ZoomIn size={16} />
+        </div>
       </motion.div>
     </motion.div>
   );
@@ -99,7 +108,7 @@ function SheetCard({
 
 /* ─── Service group ──────────────────────────────────────────── */
 function ServiceGroup({
-  id, title, supplyImg, drainageImg, supplyAlt, drainageAlt,
+  id, title, supplyImg, drainageImg, supplyAlt, drainageAlt, onImageClick
 }: {
   id: string;
   title: string;
@@ -107,6 +116,7 @@ function ServiceGroup({
   drainageImg: string;
   supplyAlt: string;
   drainageAlt: string;
+  onImageClick: (src: string, alt: string) => void;
 }) {
   return (
     <div id={id} className="flex flex-col gap-8 scroll-mt-8">
@@ -121,15 +131,15 @@ function ServiceGroup({
       </motion.h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-        <SheetCard src={supplyImg}   alt={supplyAlt}   label="Supply"   variant={slideLeft}  delay={0}   />
-        <SheetCard src={drainageImg} alt={drainageAlt} label="Drainage" variant={slideRight} delay={0.1} />
+        <SheetCard src={supplyImg}   alt={supplyAlt}   label="Supply"   variant={slideLeft}  delay={0} onImageClick={onImageClick} />
+        <SheetCard src={drainageImg} alt={drainageAlt} label="Drainage" variant={slideRight} delay={0.1} onImageClick={onImageClick} />
       </div>
     </div>
   );
 }
 
 /* ─── Electrical group ───────────────────────────────────────── */
-function ElectricalGroup() {
+function ElectricalGroup({ onImageClick }: { onImageClick: (src: string, alt: string) => void }) {
   return (
     <div id="residential-electricals" className="flex flex-col gap-8 scroll-mt-8">
       <motion.h3
@@ -143,10 +153,10 @@ function ElectricalGroup() {
       </motion.h3>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-        <SheetCard src="/services5.jpeg" alt="RCP drawing" label="RCP drawing" variant={slideLeft} delay={0} />
-        <SheetCard src="/services6.jpeg" alt="lighting" label="lighting" variant={slideRight} delay={0.1} />
-        <SheetCard src="/services7.jpeg" alt="switches and sockets" label="switches and sockets" variant={slideLeft} delay={0.2} />
-        <SheetCard src="/services8.jpeg" alt="Connection" label="Connection" variant={slideRight} delay={0.3} />
+        <SheetCard src="/services5.jpeg" alt="RCP drawing" label="RCP drawing" variant={slideLeft} delay={0} onImageClick={onImageClick} />
+        <SheetCard src="/services6.jpeg" alt="lighting" label="lighting" variant={slideRight} delay={0.1} onImageClick={onImageClick} />
+        <SheetCard src="/services7.jpeg" alt="switches and sockets" label="switches and sockets" variant={slideLeft} delay={0.2} onImageClick={onImageClick} />
+        <SheetCard src="/services8.jpeg" alt="Connection" label="Connection" variant={slideRight} delay={0.3} onImageClick={onImageClick} />
       </div>
     </div>
   );
@@ -167,6 +177,13 @@ function Divider() {
 
 /* ─── Main component ─────────────────────────────────────────── */
 export default function Services() {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const handleOpen = (src: string, alt: string) => {
+    setModalImage({ src, alt });
+  };
+  const handleClose = () => setModalImage(null);
+
   return (
     <>
       <SectionHeader
@@ -189,6 +206,7 @@ export default function Services() {
           drainageImg="/services4.jpg"
           supplyAlt="Public Washroom – Supply Diagram"
           drainageAlt="Public Washroom – Drainage Diagram"
+          onImageClick={handleOpen}
         />
 
         <Divider />
@@ -200,13 +218,16 @@ export default function Services() {
           drainageImg="/services2.jpg"
           supplyAlt="Residency Plumbing – Supply Diagram"
           drainageAlt="Residency Plumbing – Drainage Diagram"
+          onImageClick={handleOpen}
         />
 
         <Divider />
 
-        <ElectricalGroup />
+        <ElectricalGroup onImageClick={handleOpen} />
 
       </section>
+
+      <ImageModal modalImage={modalImage} onClose={handleClose} />
     </>
   );
 }

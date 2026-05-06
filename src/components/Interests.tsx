@@ -1,9 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 import { motion, Variants } from "framer-motion";
+import { ZoomIn } from "lucide-react";
+import ImageModal from "./ImageModal";
 
 /* ─── Animation variants ────────────────────────────────────── */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -52,8 +54,9 @@ const logoSpin: Variants = {
 };
 
 /* ─── Photo cell ─────────────────────────────────────────────── */
-function PhotoCell({ src, alt, delay = 0, className = "", objectFit = "cover", style }: {
+function PhotoCell({ src, alt, delay = 0, className = "", objectFit = "cover", style, onImageClick }: {
   src: string; alt: string; delay?: number; className?: string; objectFit?: "cover" | "contain"; style?: React.CSSProperties;
+  onImageClick?: (src: string, alt: string) => void;
 }) {
   return (
     <motion.div
@@ -62,9 +65,10 @@ function PhotoCell({ src, alt, delay = 0, className = "", objectFit = "cover", s
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
-      className={`relative group rounded-sm  ${className}`}
+      className={`relative group rounded-sm ${onImageClick ? "cursor-pointer" : ""} ${className}`}
       style={style}
       whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+      onClick={() => onImageClick && onImageClick(src, alt)}
     >
       <Image
         src={src} alt={alt} fill
@@ -73,6 +77,11 @@ function PhotoCell({ src, alt, delay = 0, className = "", objectFit = "cover", s
         }`}
       />
       <div className="absolute inset-0 bg-primary-green/0 group-hover:bg-primary-green/10 transition-all duration-500 pointer-events-none" />
+      {onImageClick && (
+        <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+          <ZoomIn size={16} />
+        </div>
+      )}
     </motion.div>
   );
 }
@@ -158,6 +167,13 @@ function Divider({ fromRight = false }: { fromRight?: boolean }) {
    MAIN COMPONENT
 ═══════════════════════════════════════════════════════════════ */
 export default function Interests() {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const handleOpen = (src: string, alt: string) => {
+    setModalImage({ src, alt });
+  };
+  const handleClose = () => setModalImage(null);
+
   return (
     <>
       <section className="flex flex-col gap-0">
@@ -246,26 +262,34 @@ export default function Interests() {
                 variants={scaleReveal} custom={0.05}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
-                className="group rounded-sm "
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                className="group rounded-sm cursor-pointer relative"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+               onClick={() => handleOpen("/interest1.png", "Unreal Night Scene")}>
                 <Image
                   src="/interest1.png" alt="Unreal Night Scene"
                   width={3011} height={1695}
                   className="w-full h-auto transition-transform duration-700 "
                 />
+                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <ZoomIn size={16} />
+                </div>
               </motion.div>
 
               <motion.div
                 variants={scaleReveal} custom={0.12}
                 initial="hidden" whileInView="visible"
                 viewport={{ once: true, margin: "-60px" }}
-                className="group rounded-sm "
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                className="group rounded-sm cursor-pointer relative"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+               onClick={() => handleOpen("/interest5.png", "Unreal Architecture Scene")}>
                 <Image
                   src="/interest5.png" alt="Unreal Architecture Scene"
                   width={1879} height={1003}
                   className="w-full h-auto transition-transform duration-700 "
                 />
+                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <ZoomIn size={16} />
+                </div>
               </motion.div>
             </div>
           </motion.div>
@@ -302,17 +326,20 @@ export default function Interests() {
             <div className="w-full max-w-[600px] flex gap-3 items-end">
               {/* Left sub-column: bear + duck */}
               <div className="flex flex-col gap-3" style={{ flex: 1 }}>
-                <motion.div variants={scaleReveal} custom={0.05} className="group rounded-sm " whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                <motion.div variants={scaleReveal} custom={0.05} className="group rounded-sm cursor-pointer relative" whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }} onClick={() => handleOpen("/interest4.png", "ZBrush Bear Front")}>
                   <Image src="/interest4.png" alt="ZBrush Bear Front" width={586} height={705} className="w-full h-auto transition-transform duration-700 " />
+                  <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
                 </motion.div>
-                <motion.div variants={scaleReveal} custom={0.1} className="group rounded-sm " whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                <motion.div variants={scaleReveal} custom={0.1} className="group rounded-sm cursor-pointer relative" whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }} onClick={() => handleOpen("/interest6.png", "ZBrush Duck")}>
                   <Image src="/interest6.png" alt="ZBrush Duck" width={1136} height={1672} className="w-full h-auto transition-transform duration-700 " />
+                  <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
                 </motion.div>
               </div>
 
               {/* Right: tall full character */}
-              <motion.div variants={scaleReveal} custom={0.08} className="group rounded-sm " style={{ flex: 1.225 }} whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+              <motion.div variants={scaleReveal} custom={0.08} className="group rounded-sm cursor-pointer relative" style={{ flex: 1.225 }} whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }} onClick={() => handleOpen("/interest7.png", "ZBrush Full Character")}>
                 <Image src="/interest7.png" alt="ZBrush Full Character" width={1393} height={3093} className="w-full h-auto transition-transform duration-700 " />
+                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
               </motion.div>
             </div>
           </motion.div>
@@ -328,10 +355,10 @@ export default function Interests() {
 
           {/* Top 4 images */}
           <div className="flex gap-2 mb-6 w-full" style={{ aspectRatio: 2.888 }}>
-            <PhotoCell src="/interest8.png"  alt="Joker Clay Base"    delay={0}    style={{ flex: 0.632 }} />
-            <PhotoCell src="/interest9.png"  alt="Joker Clay Detail"  delay={0.07} style={{ flex: 0.873 }} />
-            <PhotoCell src="/interest10.png" alt="Joker Colored"      delay={0.14} style={{ flex: 0.764 }} />
-            <PhotoCell src="/interest2.png"  alt="Joker Final Render" delay={0.21} style={{ flex: 0.619 }} />
+            <PhotoCell src="/interest8.png"  alt="Joker Clay Base"    delay={0}    style={{ flex: 0.632 }} onImageClick={handleOpen} />
+            <PhotoCell src="/interest9.png"  alt="Joker Clay Detail"  delay={0.07} style={{ flex: 0.873 }} onImageClick={handleOpen} />
+            <PhotoCell src="/interest10.png" alt="Joker Colored"      delay={0.14} style={{ flex: 0.764 }} onImageClick={handleOpen} />
+            <PhotoCell src="/interest2.png"  alt="Joker Final Render" delay={0.21} style={{ flex: 0.619 }} onImageClick={handleOpen} />
           </div>
 
           {/* Bottom: close-up + text */}
@@ -343,12 +370,16 @@ export default function Interests() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
-              className="relative h-[220px] md:h-[260px] group rounded-sm "
-             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+              className="relative h-[220px] md:h-[260px] group rounded-sm cursor-pointer"
+             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+             onClick={() => handleOpen("/interest11.png", "Joker Close-up")}>
               <Image
                 src="/interest11.png" alt="Joker Close-up" fill
                 className="object-cover transition-transform duration-700 "
               />
+              <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <ZoomIn size={16} />
+              </div>
             </motion.div>
 
             <div className="col-span-2 flex flex-col gap-4">
@@ -419,12 +450,12 @@ export default function Interests() {
 
           {/* Top: [col][col][col][stacked-right] */}
           <div className="flex gap-2 mb-6 w-full" style={{ aspectRatio: 2.125 }}>
-            <PhotoCell src="/interest12.png" alt="Jade Clay Front"    delay={0}    style={{ flex: 0.6 }} />
-            <PhotoCell src="/interest13.png" alt="Jade Clay Side"     delay={0.07} style={{ flex: 0.554 }} />
-            <PhotoCell src="/interest14.png" alt="Jade Colored Front" delay={0.14} style={{ flex: 0.561 }} />
+            <PhotoCell src="/interest12.png" alt="Jade Clay Front"    delay={0}    style={{ flex: 0.6 }} onImageClick={handleOpen} />
+            <PhotoCell src="/interest13.png" alt="Jade Clay Side"     delay={0.07} style={{ flex: 0.554 }} onImageClick={handleOpen} />
+            <PhotoCell src="/interest14.png" alt="Jade Colored Front" delay={0.14} style={{ flex: 0.561 }} onImageClick={handleOpen} />
             <div className="flex flex-col gap-2" style={{ flex: 0.41 }}>
-              <PhotoCell src="/interest15.png" alt="Jade Top Right"    delay={0.21} style={{ flex: 0.73 }} />
-              <PhotoCell src="/interest16.png" alt="Jade Bottom Right" delay={0.28} style={{ flex: 0.27 }} />
+              <PhotoCell src="/interest15.png" alt="Jade Top Right"    delay={0.21} style={{ flex: 0.73 }} onImageClick={handleOpen} />
+              <PhotoCell src="/interest16.png" alt="Jade Bottom Right" delay={0.28} style={{ flex: 0.27 }} onImageClick={handleOpen} />
             </div>
           </div>
 
@@ -437,12 +468,16 @@ export default function Interests() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-60px" }}
-              className="relative h-[220px] md:h-[260px] group rounded-sm "
-             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+              className="relative h-[220px] md:h-[260px] group rounded-sm cursor-pointer"
+             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+             onClick={() => handleOpen("/interest3.png", "Jade Mist Close-up")}>
               <Image
                 src="/interest3.png" alt="Jade Mist Close-up" fill
                 className="object-cover transition-transform duration-700 "
               />
+              <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <ZoomIn size={16} />
+              </div>
             </motion.div>
 
             <div className="col-span-2 flex flex-col gap-4">
@@ -506,6 +541,8 @@ export default function Interests() {
         <Divider />
 
       </section>
+
+      <ImageModal modalImage={modalImage} onClose={handleClose} />
     </>
   );
 }

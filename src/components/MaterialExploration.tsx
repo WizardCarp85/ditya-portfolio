@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 import { motion, Variants } from "framer-motion";
+import { ZoomIn } from "lucide-react";
+import ImageModal from "./ImageModal";
 
 /* ─── Animation variants ────────────────────────────────────── */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -30,12 +33,14 @@ function PhotoCell({
   label,
   delay = 0,
   rowHeight = "h-[280px] md:h-[360px]",
+  onImageClick,
 }: {
   src: string;
   alt: string;
   label?: string;
   delay?: number;
   rowHeight?: string;
+  onImageClick?: (src: string, alt: string) => void;
 }) {
   return (
     <motion.div
@@ -44,8 +49,9 @@ function PhotoCell({
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
-      className={`relative ${rowHeight} group rounded-sm`}
+      className={`relative ${rowHeight} group rounded-sm ${onImageClick ? "cursor-pointer" : ""}`}
       whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+      onClick={() => onImageClick && onImageClick(src, alt)}
     >
       <Image
         src={src}
@@ -72,12 +78,25 @@ function PhotoCell({
           </span>
         </motion.div>
       )}
+
+      {onImageClick && (
+        <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+          <ZoomIn size={16} />
+        </div>
+      )}
     </motion.div>
   );
 }
 
 /* ─── Main component ─────────────────────────────────────────── */
 export default function MaterialExploration() {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const handleOpen = (src: string, alt: string) => {
+    setModalImage({ src, alt });
+  };
+  const handleClose = () => setModalImage(null);
+
   return (
     <>
       <SectionHeader
@@ -105,17 +124,20 @@ export default function MaterialExploration() {
             src="/material1.png"
             alt="Warli Art"
             delay={0}
+            onImageClick={handleOpen}
           />
           <PhotoCell
             src="/material2.png"
             alt="Paper Mache"
             label="Paper Mache"
             delay={0.08}
+            onImageClick={handleOpen}
           />
           <PhotoCell
             src="/material3.png"
             alt="Metal Sheet Exploration"
             delay={0.16}
+            onImageClick={handleOpen}
           />
         </div>
 
@@ -126,18 +148,21 @@ export default function MaterialExploration() {
             alt="Clay Work"
             label="Clay Work"
             delay={0.06}
+            onImageClick={handleOpen}
           />
           <PhotoCell
             src="/material5.png"
             alt="3D Prototype"
             label="3D Prototype"
             delay={0.14}
+            onImageClick={handleOpen}
           />
           <PhotoCell
             src="/material6.png"
             alt="Paper Exploration"
             label="Paper Exploration"
             delay={0.22}
+            onImageClick={handleOpen}
           />
         </div>
 
@@ -151,6 +176,8 @@ export default function MaterialExploration() {
         transition={{ duration: 1, ease: EASE }}
         className="border-b-2 border-dotted border-primary-red/30 origin-right mt-6"
       />
+
+      <ImageModal modalImage={modalImage} onClose={handleClose} />
     </>
   );
 }

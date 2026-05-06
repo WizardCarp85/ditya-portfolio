@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 import { motion, Variants } from "framer-motion";
+import { ZoomIn } from "lucide-react";
+import ImageModal from "./ImageModal";
 
 /* ─── Animation variants ────────────────────────────────────── */
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -30,12 +33,14 @@ function BlueprintSection({
   src,
   alt,
   height = "h-[420px] md:h-[520px]",
+  onImageClick,
 }: {
   id: string;
   title: string;
   src: string;
   alt: string;
   height?: string;
+  onImageClick: (src: string, alt: string) => void;
 }) {
   return (
     <div id={id} className="scroll-mt-8">
@@ -57,7 +62,9 @@ function BlueprintSection({
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className={`relative w-full ${height} bg-[#F7F4EB]/50 group rounded-sm  border border-primary-red/20`}
+        className={`relative w-full ${height} bg-[#F7F4EB]/50 group rounded-sm border border-primary-red/20 cursor-pointer`}
+        whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+        onClick={() => onImageClick(src, alt)}
       >
         <Image
           src={src}
@@ -67,6 +74,10 @@ function BlueprintSection({
         />
         {/* hover glow ring */}
         <div className="absolute inset-0 ring-1 ring-inset ring-primary-green/0 group-hover:ring-primary-green/20 transition-all duration-500 pointer-events-none" />
+        {/* Zoom icon hint */}
+        <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <ZoomIn size={16} />
+        </div>
       </motion.div>
     </div>
   );
@@ -87,6 +98,13 @@ function Divider() {
 
 /* ─── Main component ─────────────────────────────────────────── */
 export default function ConstructionDrawings() {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const handleOpen = (src: string, alt: string) => {
+    setModalImage({ src, alt });
+  };
+  const handleClose = () => setModalImage(null);
+
   return (
     <>
       <SectionHeader
@@ -109,6 +127,7 @@ export default function ConstructionDrawings() {
           title="GLASS PARTITION"
           src="/construction2.jpg"
           alt="Glass Partition Drawing Sheet"
+          onImageClick={handleOpen}
         />
 
         <Divider />
@@ -118,6 +137,7 @@ export default function ConstructionDrawings() {
           title="EXTERIOR WALL SECTION"
           src="/construction5.jpg"
           alt="Exterior Wall Section Drawing Sheet"
+          onImageClick={handleOpen}
         />
 
         <Divider />
@@ -127,6 +147,7 @@ export default function ConstructionDrawings() {
           title="TYPES OF ARCHS"
           src="/construction1.jpg"
           alt="Types of Archs Drawing Sheet"
+          onImageClick={handleOpen}
         />
 
         <Divider />
@@ -136,6 +157,7 @@ export default function ConstructionDrawings() {
           title="TYPES OF LINTELS"
           src="/construction3.jpg"
           alt="Types of Lintels Drawing Sheet"
+          onImageClick={handleOpen}
         />
 
         <Divider />
@@ -145,9 +167,12 @@ export default function ConstructionDrawings() {
           title="STAIRCASE"
           src="/construction4.jpg"
           alt="Staircase Drawing Sheet"
+          onImageClick={handleOpen}
         />
 
       </section>
+
+      <ImageModal modalImage={modalImage} onClose={handleClose} />
     </>
   );
 }

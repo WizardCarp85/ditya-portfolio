@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 import { motion, Variants } from "framer-motion";
+import { ZoomIn } from "lucide-react";
+import ImageModal from "./ImageModal";
 
 /* ─── Animation Variants ─────────────────────────────────────── */
 
@@ -63,6 +66,13 @@ const colorSwatch: Variants = {
 };
 
 export default function SpaceDesign() {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
+
+  const handleOpen = (src: string, alt: string) => {
+    setModalImage({ src, alt });
+  };
+  const handleClose = () => setModalImage(null);
+
   return (
     <>
       <SectionHeader
@@ -126,14 +136,18 @@ export default function SpaceDesign() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className="relative w-full h-full min-h-62.5 group rounded-sm "
-             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+              className="relative w-full h-full min-h-62.5 group rounded-sm cursor-pointer"
+             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+             onClick={() => handleOpen(src, alt)}>
               <Image
                 src={src}
                 alt={alt}
                 fill
                 className="object-contain transition-transform duration-700 "
               />
+              <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <ZoomIn size={16} />
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -165,8 +179,9 @@ export default function SpaceDesign() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
-              className={`relative w-full ${flex} min-h-[120px] bg-[#F7F4EB]/30 p-2 shadow-sm group rounded-sm`}
+              className={`relative w-full ${flex} min-h-[120px] bg-[#F7F4EB]/30 p-2 shadow-sm group rounded-sm cursor-pointer`}
               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+              onClick={() => handleOpen(src, alt)}
             >
               <Image
                 src={src}
@@ -174,6 +189,9 @@ export default function SpaceDesign() {
                 fill
                 className="object-contain transition-transform duration-700 "
               />
+              <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                <ZoomIn size={16} />
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -188,8 +206,9 @@ export default function SpaceDesign() {
           className="lg:col-span-4 flex flex-col gap-4 h-auto lg:h-[580px]"
         >
           <motion.div 
-            className="relative flex-1 min-h-[300px] bg-[#F7F4EB]/30 p-2 shadow-sm border border-primary-green/10 group rounded-sm "
+            className="relative flex-1 min-h-[300px] bg-[#F7F4EB]/30 p-2 shadow-sm border border-primary-green/10 group rounded-sm cursor-pointer"
             whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+            onClick={() => handleOpen("/manduva2.png", "2D Floor Plan")}
           >
             <Image
               src="/manduva2.png"
@@ -197,13 +216,17 @@ export default function SpaceDesign() {
               fill
               className="object-contain transition-transform duration-700 "
             />
+            <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              <ZoomIn size={16} />
+            </div>
           </motion.div>
           <div className="grid grid-cols-2 gap-3 h-[120px]">
             {["/manduva5.png", "/manduva6.png"].map((src, i) => (
               <motion.div 
                 key={i} 
-                className="relative bg-[#F7F4EB]/30 p-1 shadow-sm border border-primary-green/10 group rounded-sm "
+                className="relative bg-[#F7F4EB]/30 p-1 shadow-sm border border-primary-green/10 group rounded-sm cursor-pointer"
                 whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+                onClick={() => handleOpen(src, "Detail")}
               >
                 <Image
                   src={src}
@@ -211,6 +234,9 @@ export default function SpaceDesign() {
                   fill
                   className="object-cover transition-transform duration-700 "
                 />
+                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <ZoomIn size={16} />
+                </div>
               </motion.div>
             ))}
           </div>
@@ -308,14 +334,18 @@ export default function SpaceDesign() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="relative w-full h-[350px] md:h-[450px] group rounded-sm "
-           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+            className="relative w-full h-[350px] md:h-[450px] group rounded-sm cursor-pointer"
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+           onClick={() => handleOpen("/sdextra1.png", "Bathroom Render")}>
             <Image
               src="/sdextra1.png"
               alt="Bathroom Render"
               fill
               className="object-cover shadow-md border-b-[8px] border-r-[8px] border-primary-green/10 transition-transform duration-700 "
             />
+            <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              <ZoomIn size={16} />
+            </div>
           </motion.div>
           <div className="grid grid-cols-2 gap-4">
             {["/sdextra2.png", "/sdextra3.png"].map((src, i) => (
@@ -326,14 +356,18 @@ export default function SpaceDesign() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative h-[200px] md:h-[250px] group rounded-sm "
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                className="relative h-[200px] md:h-[250px] group rounded-sm cursor-pointer"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+               onClick={() => handleOpen(src, "Render")}>
                 <Image
                   src={src}
                   alt="Render"
                   fill
                   className="object-cover shadow-sm transition-transform duration-700 "
                 />
+                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <ZoomIn size={16} />
+                </div>
               </motion.div>
             ))}
           </div>
@@ -377,14 +411,18 @@ export default function SpaceDesign() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-80px" }}
-                className="relative h-[200px] md:h-[250px] group rounded-sm "
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+                className="relative h-[200px] md:h-[250px] group rounded-sm cursor-pointer"
+               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+               onClick={() => handleOpen(src, "Render")}>
                 <Image
                   src={src}
                   alt="Render"
                   fill
                   className="object-cover shadow-sm transition-transform duration-700 "
                 />
+                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <ZoomIn size={16} />
+                </div>
               </motion.div>
             ))}
           </div>
@@ -394,14 +432,18 @@ export default function SpaceDesign() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="relative w-full h-[350px] md:h-[450px] group rounded-sm "
-           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}>
+            className="relative w-full h-[350px] md:h-[450px] group rounded-sm cursor-pointer"
+           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+           onClick={() => handleOpen("/sdextra6.png", "Kitchen Render")}>
             <Image
               src="/sdextra6.png"
               alt="Kitchen Render"
               fill
               className="object-cover shadow-md border-b-[8px] border-l-[8px] border-primary-green/10 transition-transform duration-700 "
             />
+            <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+              <ZoomIn size={16} />
+            </div>
           </motion.div>
         </motion.div>
 
@@ -419,6 +461,8 @@ export default function SpaceDesign() {
           ))}
         </motion.div>
       </motion.section>
+
+      <ImageModal modalImage={modalImage} onClose={handleClose} />
     </>
   );
 }
