@@ -68,7 +68,7 @@ const logoSpin: Variants = {
   }),
 };
 
-export default function SustainabilityProject() {
+export default function FurnitureDesign() {
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
 
   const handleOpen = (src: string, alt: string) => {

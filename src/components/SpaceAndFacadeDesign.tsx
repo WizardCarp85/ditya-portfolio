@@ -75,7 +75,7 @@ const logoSpin: Variants = {
   }),
 };
 
-export default function SpaceDesign() {
+export default function SpaceAndFacadeDesign() {
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null);
 
   const handleOpen = (src: string, alt: string) => {
