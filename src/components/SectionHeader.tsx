@@ -70,7 +70,7 @@ export default function SectionHeader({
                     {sublinks.map((sublink: string, subIdx: number) => (
                       <a 
                         key={subIdx}
-                        href={`#${toSlug(label)}`}
+                        href={`#${toSlug(sublink)}`}
                         className="text-primary-red/70 text-xs uppercase font-semibold tracking-widest hover:text-primary-green transition-colors relative group flex items-center"
                       >
                         <span className="absolute -left-4 w-3 border-t-2 border-dotted border-primary-red/30 group-hover:border-primary-green transition-colors" />

@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const items = [
-  { num: "01", title: "SPACE DESIGN", image: "/space design.png", link: "/space-design" },
-  { num: "02", title: "SUSTAINABILITY PROJECT", image: "/sustainability project.png", link: "/sustainability-project" },
+  { num: "01", title: "SPACE AND FACADE DESIGN", image: "/space design.png", link: "/space-design" },
+  { num: "02", title: "FURNITURE DESIGN", image: "/sustainability project.png", link: "/sustainability-project" },
   { num: "03", title: "CONSTRUCTION DRAWINGS", image: "/construction drawings.png", link: "/construction-drawings" },
   { num: "04", title: "SERVICES", image: "/services.png", link: "/services" },
   { num: "05", title: "INTERESTS", image: "/interests.png", link: "/interests" },

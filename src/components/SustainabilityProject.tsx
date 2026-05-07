@@ -7,6 +7,8 @@ import { motion, Variants } from "framer-motion";
 import { ZoomIn } from "lucide-react";
 import ImageModal from "./ImageModal";
 
+import { PLACEHOLDER_IMG } from "@/lib/constants";
+
 /* ─── Animation Variants ─────────────────────────────────────── */
 
 const fadeUp: Variants = {
@@ -78,41 +80,33 @@ export default function SustainabilityProject() {
     <>
       <SectionHeader
         num="02"
-        title="SUSTAINABILITY PROJECT"
+        title="FURNITURE DESIGN"
         image="/sustainability project.png"
+        links={["CHAIR DECODING", "CHAIR MAKING"]}
       />
+
+      {/* ── Category: Chair Decoding ────────────────────────────── */}
+      <motion.div
+        id="chair-decoding"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={fadeUp}
+        className="mt-8 mb-8 border-b-2 border-dotted border-primary-red/30 pb-4 scroll-mt-8"
+      >
+        <h2 className="text-4xl md:text-5xl text-primary-green tracking-widest font-bold">
+          CHAIR DECODING
+        </h2>
+      </motion.div>
 
       <motion.section
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="grid grid-cols-1 md:grid-cols-[1fr_0.8fr_1.5fr] gap-6 my-16 md:items-stretch"
+        className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-6 my-16 lg:items-stretch"
       >
         {/* ── Left Column: Text ──────────────────────────────── */}
-        <motion.div
-          variants={fadeLeft}
-          custom={0}
-          className="relative"
-        >
-          <motion.div
-            variants={fadeUp}
-            custom={0}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="flex justify-between items-start mb-6"
-          >
-            <motion.h3
-              variants={titleReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              className="text-3xl text-primary-green font-bold tracking-wider"
-            >
-              SOLAR PYRAMID<br />SHIELD
-            </motion.h3>
-          </motion.div>
-
+        <motion.div variants={fadeLeft} custom={0} className="relative">
           <motion.div
             variants={fadeUp}
             custom={0.1}
@@ -122,163 +116,116 @@ export default function SustainabilityProject() {
             className="text-primary-red text-sm leading-relaxed mb-6 font-medium"
           >
             <p className="mb-4">
-              Our university is a residential campus where The passage from Residency 3 to our academic block majorly faces the harmful sun rays from around 11am to around 3pm. The main focus is to design a module that helps to avoid south and west rays of sun in the given area that not only provides shade but also helps in cooling the area. Materials used:
+              This project involves decoding some of the iconic Finn Juhl's chairs and creating handmade scaled technical drawings for the same. This helped me in understanding the ergonomics of chairs and how to create scaled drawings which further helped me in designing a simple chair of my own inspired by the iconic Chieftain chair of Finn Juhl.
             </p>
-            <ul className="list-disc list-outside ml-4 mb-4 flex flex-col gap-1">
-              <li><span className="font-bold">Paper pulp:</span> helps in ensuring sustainability of the tile.</li>
-              <li><span className="font-bold">Lime:</span> acts as a binder and hardener for the tile.</li>
-              <li><span className="font-bold">Hempcrete:</span> helps in structural strength and stability, weather resistance and thermal resistance.</li>
-              <li><span className="font-bold">Starch binder (corn, potato or tapioca):</span> helps in water resistance as well as thermal insulation.</li>
-            </ul>
-            <p className="font-bold mb-2">Approximate costing:</p>
-            <ul className="list-disc list-outside ml-4 flex flex-col gap-1">
-              <li><span className="font-bold">Paper pulp:</span> The cost of mid quality recycled paper pulp costs around Rs. 35000 to 50000 per tonne i.e. ₹ 35- 50 per kg</li>
-              <li><span className="font-bold">Hydrated Lime:</span> Good grade hydrated lime cost around ₹ 6 to 10 per kg</li>
-              <li><span className="font-bold">Hempcrete:</span> Given local costs having to include transport etc., a realistic ballpark for hempcrete would be around ₹ 20 to 35 per kg.</li>
-              <li><span className="font-bold">Tapioca Starch:</span> Cost for industrial / binder-grade tapioca starch in or near Delhi is approximately ₹ 30 to ₹ 60 per kg.</li>
-            </ul>
+            <p>
+              The chair included the organic, sculptural teak frame mimicing bone structures, while the detached, &quot;floating&quot; leather upholstery provides ergonomic comfort. Inspired by tribal weaponry and ancient craftsmanship, the design's majestic scale and expressive curves redefined mid-century furniture as high-art seating.
+            </p>
           </motion.div>
         </motion.div>
 
-        {/* ── Middle Column: Material Images ────────────────── */}
-        <motion.div
-          variants={fadeUp}
-          custom={0.05}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="flex flex-col gap-3"
-        >
-          <div className="flex flex-col items-end gap-3 p-2 w-full">
-            {[
-              { src: "/rhino.png", alt: "Rhino" },
-              { src: "/twinmotion.png", alt: "Twinmotion" },
-            ].map(({ src, alt }, i) => (
-              <motion.div
-                key={i}
-                variants={logoSpin}
-                custom={0.1 + i * 0.1}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-                className="w-12 h-12 relative bg-primary-red overflow-hidden rounded-sm"
-              >
-                <Image src={src} alt={alt} fill className="object-cover" />
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            variants={scaleReveal}
-            custom={0.1}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="w-full group rounded-sm mb-3 cursor-pointer relative"
-           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
-           onClick={() => handleOpen("/sustain1.png", "Material Powder Bowl")}>
-            <Image
-              src="/sustain1.png"
-              alt="Material Powder Bowl"
-              width={1485} height={1489}
-              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 "
-            />
-            <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
-          </motion.div>
-
-          <div className="flex gap-3 w-full" style={{ aspectRatio: 1.5 }}>
-            {/* Left sub-column */}
-            <div className="flex flex-col gap-3 flex-1 h-full">
-              <motion.div
-                variants={scaleReveal} custom={0.15}
-                initial="hidden" whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-                className="relative w-full group rounded-sm flex-1 cursor-pointer"
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
-               onClick={() => handleOpen("/sustain2.png", "Lime Powder")}>
-                <Image
-                  src="/sustain2.png" alt="Lime Powder"
-                  fill
-                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
-                />
-                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
-              </motion.div>
-              <motion.div
-                variants={scaleReveal} custom={0.25}
-                initial="hidden" whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-                className="relative w-full group rounded-sm flex-1 cursor-pointer"
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
-               onClick={() => handleOpen("/sustain3.png", "Hempcrete Blocks")}>
-                <Image
-                  src="/sustain3.png" alt="Hempcrete Blocks"
-                  fill
-                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
-                />
-                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
-              </motion.div>
-            </div>
-
-            {/* Right sub-column */}
-            <div className="flex-1 flex h-full">
-              <motion.div
-                variants={scaleReveal} custom={0.2}
-                initial="hidden" whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-                className="relative w-full group rounded-sm flex-1 cursor-pointer"
-               whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
-               onClick={() => handleOpen("/sustain4.png", "Hempcrete Ball")}>
-                <Image
-                  src="/sustain4.png" alt="Hempcrete Ball"
-                  fill
-                  className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
-                />
-                <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
-              </motion.div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* ── Right Column: Renders ─────────────────── */}
+        {/* ── Right Column: 4 Images Grid ─────────────────── */}
         <motion.div
           variants={fadeRight}
-          custom={0}
+          custom={0.1}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="flex flex-col gap-6 w-full"
+          className="grid grid-cols-2 gap-4 w-full h-full"
+        >
+          {[1, 2, 3, 4].map((num, i) => (
+            <motion.div
+              key={num}
+              variants={scaleReveal}
+              custom={i * 0.15}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              className="w-full min-h-[250px] md:min-h-[300px] group rounded-sm cursor-pointer relative"
+             whileHover={{ y: -8, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+             onClick={() => handleOpen(`/furniture${num}.jpeg`, `Decoding Image ${num}`)}>
+              <Image
+                src={`/furniture${num}.jpeg`}
+                alt={`Decoding Image ${num}`}
+                fill
+                className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
+              />
+              <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.section>
+
+      {/* ── Category: Chair Making ────────────────────────────── */}
+      <motion.div
+        id="chair-making"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        variants={fadeUp}
+        className="mt-24 mb-8 border-b-2 border-dotted border-primary-red/30 pb-4 scroll-mt-8"
+      >
+        <h2 className="text-4xl md:text-5xl text-primary-green tracking-widest font-bold">
+          CHAIR MAKING
+        </h2>
+      </motion.div>
+
+      <motion.section
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-80px" }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 my-16"
+      >
+        <div className="grid grid-cols-2 gap-4 h-full">
+          {[
+            { id: 5, title: "Cut List" },
+            { id: 6, title: "Wood Cuts" },
+            { id: 7, title: "Materials" },
+            { id: 8, title: "Prototype" }
+          ].map((item, i) => (
+            <motion.div
+              key={item.id}
+              variants={scaleReveal}
+              custom={i * 0.1}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+              className="w-full min-h-[200px] md:min-h-[280px] group rounded-sm cursor-pointer relative"
+             whileHover={{ y: -8, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
+             onClick={() => handleOpen(`/furniture${item.id}.jpeg`, item.title)}>
+              <Image
+                src={`/furniture${item.id}.jpeg`}
+                alt={item.title}
+                fill
+                className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
+              />
+              <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          variants={fadeRight}
+          custom={0.1}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex flex-col gap-6 h-full"
         >
           <motion.div
             variants={scaleReveal}
-            custom={0}
+            custom={0.3}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
-            className="w-full group rounded-sm cursor-pointer relative"
+            className="w-full h-full min-h-[600px] group rounded-sm cursor-pointer relative"
            whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
-           onClick={() => handleOpen("/sustain5.png", "Pyramid Shield Render 1")}>
+           onClick={() => handleOpen("/furniture9.jpeg", "Making Final")}>
             <Image
-              src="/sustain5.png"
-              alt="Pyramid Shield Render 1"
-              width={2768} height={1755}
-              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 "
-            />
-            <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
-          </motion.div>
-          <motion.div
-            variants={scaleReveal}
-            custom={0.15}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="w-full group rounded-sm cursor-pointer relative"
-           whileHover={{ y: -12, boxShadow: "0px 20px 40px -12px rgba(0,0,0,0.25)" }}
-           onClick={() => handleOpen("/sustain6.png", "Pyramid Shield Render 2")}>
-            <Image
-              src="/sustain6.png"
-              alt="Pyramid Shield Render 2"
-              width={2768} height={1562}
-              className="w-full h-auto object-cover border-2 border-white shadow-sm transition-transform duration-700 "
+              src="/furniture9.jpeg"
+              alt="Making Final"
+              fill
+              className="object-cover border-2 border-white shadow-sm transition-transform duration-700 "
             />
             <div className="absolute top-4 right-4 bg-primary-green/80 text-[#F7F4EB] p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"><ZoomIn size={16} /></div>
           </motion.div>
